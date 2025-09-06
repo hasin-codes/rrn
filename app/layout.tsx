@@ -3,6 +3,7 @@ import localFont from 'next/font/local'
 import './globals.css'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+import GradualBlur from '@/components/ui/gradual-blur'
 
 const texGyreAdventor = localFont({
   src: '../public/fonts/texgyreadventor-bold.otf',
@@ -92,19 +93,41 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={texGyreAdventor.variable}>
-        <div className="min-h-screen bg-[#dcdeea]">
-          {/* Navigation */}
-          
-          
-          {/* Main Content */}
-          <main>
-            {children}
-          </main>
-          
-          {/* Footer */}
-          <div className="mt-6 lg:mt-8">
-            <Footer />
+        <div 
+          className="min-h-screen bg-[#dcdeea]"
+          style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}
+        >
+          <div 
+            style={{ 
+              height: '100%', 
+              overflowY: 'auto', 
+              padding: '0' 
+            }}
+          >
+            {/* Navigation */}
+            
+            
+            {/* Main Content */}
+            <main>
+              {children}
+            </main>
+            
+            {/* Footer */}
+            <div className="mt-6 lg:mt-8">
+              <Footer />
+            </div>
           </div>
+
+          <GradualBlur
+            target="parent"
+            position="bottom"
+            height="8rem"
+            strength={5}
+            divCount={10}
+            curve="bezier"
+            exponential={true}
+            opacity={0.85}
+          />
         </div>
       </body>
     </html>
