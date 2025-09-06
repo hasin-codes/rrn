@@ -9,8 +9,9 @@ export function StoriesSection() {
   ));
 
   return (
-    <section className="w-full py-16 px-4 bg-white">
-      <div className="max-w-7xl mx-auto space-y-12">
+    <section className="w-full py-4 px-4 bg-[#dcdeea]">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-white rounded-lg overflow-hidden shadow-sm p-4 lg:p-6 space-y-12">
         
         {/* Header */}
         <div className="text-center space-y-6">
@@ -24,8 +25,9 @@ export function StoriesSection() {
         </div>
 
         {/* Apple Cards Carousel */}
-        <Carousel items={cards} autoScroll={true} scrollSpeed={2} />
-              </div>
+        <Carousel items={cards} autoScroll={true} scrollSpeed={35} />
+        </div>
+      </div>
     </section>
   );
 }

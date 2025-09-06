@@ -6,12 +6,12 @@ import { Card } from "@/components/ui/card";
 
 export function AboutSection() {
   return (
-    <section className="about-section w-full py-6 lg:py-8 px-4 bg-[#dcdeea]">
+    <section className="about-section w-full py-4 px-4 bg-[#dcdeea]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
         
         {/* Left Content */}
         <Card className="p-4 lg:p-6 shadow-sm space-y-4 lg:space-y-6 order-2 lg:order-1 flex flex-col bg-white rounded-sm">
-          <div className="inline-block px-3 py-1.5 bg-[#D5FFF8] border border-[#00D8D2] rounded backdrop-blur-sm">
+          <div className="w-fit px-2 py-1 bg-[#D5FFF8] border border-[#00D8D2] rounded backdrop-blur-sm">
             <span className="text-[#00827e] font-bold text-sm lg:text-base">Community</span>
           </div>
 

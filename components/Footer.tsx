@@ -5,7 +5,7 @@ import { TextGif } from "@/components/ui/text-gif";
 
 export function Footer() {
   return (
-    <footer className="w-full bg-[#001c1f] rounded-t-[40px] px-6 py-12">
+    <footer className="w-full bg-[#001c1f] rounded-t-[40px] px-6 py-6">
       <div className="max-w-7xl mx-auto space-y-12">
         
         {/* Main Footer Content */}

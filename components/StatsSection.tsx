@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 
 export function StatsSection() {
   return (
-    <section className="w-full py-6 lg:py-8 px-4">
+    <section className="w-full py-4 px-4">
       <div className="max-w-7xl mx-auto">
         <Card className="shadow-sm p-4 lg:p-6 space-y-12 bg-white rounded-sm">
         

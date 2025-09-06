@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 
 export function HeroSection() {
   return (
-    <div className="w-full bg-[#dcdeea] py-6 lg:py-8 px-4">
+    <div className="w-full bg-[#dcdeea] py-4 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Mobile Layout: Left Card -> Events -> Right Card */}
         <div className="flex flex-col lg:hidden space-y-4">
@@ -48,42 +48,44 @@ export function HeroSection() {
           </Card>
 
           {/* Events Section - Mobile */}
-          <Card className="shadow-sm overflow-hidden bg-white rounded-sm">
+          <div className="bg-white rounded-lg overflow-hidden shadow-sm">
             {/* Header */}
-            <div className="grid grid-cols-3 gap-4 p-4 sm:p-6 bg-gray-50">
-              <div className="text-center">
+            <div className="grid grid-cols-3 py-3 px-6">
+              <div className="text-left">
                 <h3 className="text-sm lg:text-base xl:text-lg font-bold text-black">Training</h3>
               </div>
               <div className="text-center">
                 <h3 className="text-sm lg:text-base xl:text-lg font-bold text-black">Community Run</h3>
               </div>
-              <div className="text-center">
-                <h3 className="text-sm lg:text-base xl:text-lg font-bold text-black">Running events 2025</h3>
-          </div>
-        </div>
+              <div className="text-right">
+                <h3 className="text-sm lg:text-base xl:text-lg font-bold text-black">Events 2025</h3>
+              </div>
+            </div>
 
-            {/* Main Image */}
-            <div className="relative h-48 lg:h-64 xl:h-80 p-4 sm:p-6">
-              <Image 
-                src="/ui/hero.png" 
-                alt="Events hero" 
-                fill
-                className="object-cover rounded-lg"
-                priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-              />
+            {/* Main Image with proper padding */}
+            <div className="px-6 pb-2">
+              <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 rounded-lg overflow-hidden">
+                <Image 
+                  src="/ui/hero.png" 
+                  alt="Events hero" 
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
+                />
+              </div>
             </div>
 
             {/* Footer */}
-            <div className="grid grid-cols-2 gap-4 p-4 sm:p-6 bg-gray-50">
-              <div className="text-center sm:text-left">
+            <div className="grid grid-cols-2 py-3 px-6">
+              <div className="text-left">
                 <h3 className="text-base sm:text-lg lg:text-xl font-bold text-black">View Pacers</h3>
               </div>
-              <div className="text-center sm:text-right">
+              <div className="text-right">
                 <h3 className="text-base sm:text-lg lg:text-xl font-bold text-black">Team</h3>
               </div>
             </div>
-          </Card>
+          </div>
 
           {/* Right Card - Community Stats */}
           <Card className="p-4 lg:p-6 shadow-sm text-center space-y-3 lg:space-y-4 flex flex-col justify-center bg-white rounded-sm">
