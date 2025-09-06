@@ -23,7 +23,7 @@ export function PacersSection() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-4xl font-italic text-black">#PerfectPacers</h3>
+            <h3 className="text-4xl font-italic text-black font-nike">#PerfectPacers</h3>
             
             {/* Animated Tooltip Profile Images */}
             <div className="flex -space-x-2">
@@ -41,16 +41,7 @@ export function PacersSection() {
           
           {/* Left Side - Small Image and Counter */}
           <div className="space-y-8">
-            <div className="w-40 h-32 rounded-2xl overflow-hidden">
-              <Image 
-                src="/ui/Rectangle 11.png" 
-                alt="Pacer image" 
-                width={160} 
-                height={128} 
-                className="w-full h-full object-cover"
-                sizes="160px"
-              />
-            </div>
+            
             
             <div className="space-y-2">
               <div className="text-4xl font-bold text-black underline">
@@ -72,35 +63,35 @@ export function PacersSection() {
         </div>
 
         {/* Image Gallery */}
-        <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-          <div className="h-72 rounded-2xl overflow-hidden">
+        <div className="relative grid grid-cols-3 gap-2 md:gap-6 mt-16">
+          <div className="h-48 md:h-64 rounded-2xl overflow-hidden -mt-4 md:-mt-0">
             <Image 
               src="/ui/Rectangle 12.png" 
               alt="Gallery image 1" 
               width={400} 
               height={288} 
               className="w-full h-full object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+              sizes="(max-width: 768px) 33vw, (max-width: 1200px) 33vw, 400px"
             />
           </div>
-          <div className="h-96 rounded-2xl overflow-hidden md:-mt-12">
+          <div className="h-56 md:h-80 rounded-2xl overflow-hidden">
             <Image 
               src="/ui/Rectangle 13.png" 
               alt="Gallery image 2" 
               width={400} 
               height={384} 
               className="w-full h-full object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+              sizes="(max-width: 768px) 33vw, (max-width: 1200px) 33vw, 400px"
             />
           </div>
-          <div className="h-96 rounded-2xl overflow-hidden">
+          <div className="h-48 md:h-64 rounded-2xl overflow-hidden mt-4 md:-mt-8">
             <Image 
               src="/ui/Rectangle 14.png" 
               alt="Gallery image 3" 
               width={400} 
               height={384} 
               className="w-full h-full object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
+              sizes="(max-width: 768px) 33vw, (max-width: 1200px) 33vw, 400px"
             />
           </div>
         </div>

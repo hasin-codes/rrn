@@ -31,7 +31,7 @@ export function Footer() {
             
             {/* Navigation */}
             <div className="space-y-4">
-              <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-6">
+              <div className="flex flex-wrap gap-3 sm:gap-6">
                 <a href="#" className="text-white hover:text-gray-300 transition-colors">Home</a>
                 <a href="#" className="text-white hover:text-gray-300 transition-colors">Events</a>
                 <a href="#" className="text-white hover:text-gray-300 transition-colors">Blog</a>
