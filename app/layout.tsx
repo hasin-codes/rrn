@@ -12,8 +12,72 @@ const texGyreAdventor = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Your App Title',
-  description: 'Your app description here',
+  title: 'RunRise Nation - Run and Rise Together',
+  description: 'RunRise Nation is a passionate running community dedicated to fostering a culture of fitness, endurance, and camaraderie. Join our community for high-quality running events, virtual challenges, and an inclusive environment where every step counts towards a healthier, stronger future.',
+  keywords: [
+    'running community',
+    'running events',
+    'marathon training',
+    'virtual run',
+    'running group',
+    'fitness community',
+    'running challenges',
+    'running bootcamp',
+    'running pacers',
+    'running stories',
+    'Bangladesh running',
+    'Dhaka running',
+    'running medals',
+    'running races'
+  ],
+  authors: [{ name: 'RunRise Nation' }],
+  creator: 'RunRise Nation',
+  publisher: 'RunRise Nation',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://runrisenation.com'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'RunRise Nation - Run and Rise Together',
+    description: 'Join our passionate running community for high-quality events, virtual challenges, and an inclusive environment where every step counts.',
+    url: 'https://runrisenation.com',
+    siteName: 'RunRise Nation',
+    images: [
+      {
+        url: 'https://runrisenation.com/assets/img/nnr_20250525084451.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'RunRise Nation Community',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'RunRise Nation - Run and Rise Together',
+    description: 'Join our passionate running community for high-quality events, virtual challenges, and an inclusive environment.',
+    images: ['https://runrisenation.com/assets/img/nnr_20250525084451.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code',
+  },
 }
 
 export default function RootLayout({
@@ -23,6 +87,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="https://runrisenation.com/assets/img/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body className={texGyreAdventor.variable}>
         <div className="min-h-screen bg-[#dcdeea]">
           {/* Navigation */}
