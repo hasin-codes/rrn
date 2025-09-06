@@ -39,16 +39,7 @@ export function PacersSection() {
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
-          {/* Left Side - Small Image and Counter */}
-          <div className="space-y-8">
-            
-            
-            <div className="space-y-2">
-              <div className="text-4xl font-bold text-black underline">
-                02<span className="text-2xl text-gray-600">/10</span>
-              </div>
-            </div>
-          </div>
+          
 
           {/* Right Side - Event Info */}
           <div className="space-y-6">
