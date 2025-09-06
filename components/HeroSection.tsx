@@ -9,42 +9,36 @@ export function HeroSection() {
         {/* Mobile Layout: Left Card -> Events -> Right Card */}
         <div className="flex flex-col lg:hidden space-y-4">
           {/* Left Card - Main Hero Content */}
-          <Card className="p-4 lg:p-6 shadow-sm flex flex-col justify-center bg-white rounded-sm">
+          <Card className="p-6 sm:p-8 md:p-10 shadow-sm flex flex-col justify-center bg-white rounded-sm relative overflow-hidden">
             {/* Hero Text */}
-            <div className="space-y-1 lg:space-y-2 mb-4 lg:mb-6 ">
+            <div className="space-y-0 relative">
               <div className="relative">
-                <h1 className="hero-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black leading-[1.1]">
+                <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl font-black text-black leading-[0.9] tracking-tight">
                   Join Our
                 </h1>
-                <div className="absolute -right-2 sm:right-2 lg:right-4 xl:right-6 -top-2 sm:-top-1 lg:top-0 xl:top-2 w-12 h-16 sm:w-16 sm:h-20 lg:w-20 lg:h-24 xl:w-24 xl:h-28 opacity-90 z-10">
-                  <Image 
-                    src="/ui/piyas.png" 
-                    alt="Piyas" 
-                    width={96} 
-                    height={112} 
-                    className="w-full h-full object-contain"
-                    priority
-                    sizes="(max-width: 640px) 48px, (max-width: 1024px) 64px, (max-width: 1280px) 80px, 96px"
-                  />
-                </div>
               </div>
               
-              <h1 className="hero-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black leading-[1.1]">
+              <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl font-black text-black leading-[0.9] tracking-tight">
                 Running Family
               </h1>
               
-              <h1 className="hero-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black leading-[1.1]">
+              <h1 className="hero-title text-3xl sm:text-4xl md:text-5xl font-black text-black leading-[0.9] tracking-tight">
                 Beat Your Best
               </h1>
-            </div>
 
-            {/* CTA Button */}
-            <button className="group bg-gradient-to-r from-[#00ead3] to-[#00d4c0] hover:from-[#00d4c0] hover:to-[#00ead3] px-4 lg:px-6 py-2 lg:py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 lg:gap-3 w-full sm:w-auto">
-              <span className="text-black font-bold text-base lg:text-lg">Join our community</span>
-              <div className="w-4 h-4 lg:w-5 lg:h-5 transition-transform group-hover:translate-x-1">
-                <Image src="/svgs/arrow-right.svg" alt="" width={20} height={20} className="w-full h-full" />
+              {/* Runner Image - Positioned absolutely */}
+              <div className="absolute -right-4 sm:-right-6 md:-right-8 top-1/2 -translate-y-1/2 w-24 h-32 sm:w-32 sm:h-40 md:w-40 md:h-52 z-10">
+                <Image 
+                  src="/ui/piyas.png" 
+                  alt="Runner" 
+                  width={160} 
+                  height={208} 
+                  className="w-full h-full object-contain"
+                  priority
+                  sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, (max-width: 1024px) 160px"
+                />
               </div>
-            </button>
+            </div>
           </Card>
 
           {/* Events Section - Mobile */}
@@ -97,16 +91,16 @@ export function HeroSection() {
             <p className="text-sm lg:text-base text-black leading-tight">Active Community Members & Counting</p>
           </div>
           
-          <div className="flex justify-center py-2 lg:py-3">
-              <div className="w-16 h-20 lg:w-20 lg:h-24">
+          <div className="flex justify-center py-1 lg:py-2">
+              <div className="relative w-24 h-32 lg:w-32 lg:h-40">
                 <Image 
                   src="/ui/sneaker.png" 
                   alt="Running sneaker" 
-                  width={80} 
-                  height={96} 
-                  className="w-full h-full object-cover"
+                  width={128} 
+                  height={160} 
+                  className="w-full h-full object-contain"
                   priority
-                  sizes="(max-width: 1024px) 64px, 80px"
+                  sizes="(max-width: 1024px) 96px, 128px"
                 />
               </div>
           </div>
@@ -121,42 +115,36 @@ export function HeroSection() {
         <div className="hidden lg:grid grid-cols-3 gap-4 lg:gap-6 items-stretch hero-content">
           {/* Main Hero Content */}
           <div className="lg:col-span-2 space-y-4 lg:space-y-0">
-            <Card className="p-4 lg:p-6 shadow-sm h-full flex flex-col justify-center bg-white rounded-sm">
+            <Card className="p-8 lg:p-10 xl:p-12 shadow-sm h-full flex flex-col justify-center bg-white rounded-sm relative overflow-hidden">
               {/* Hero Text */}
-              <div className="space-y-1 lg:space-y-2 mb-4 lg:mb-6 ">
+              <div className="space-y-0 relative">
                 <div className="relative">
-                  <h1 className="hero-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black leading-[1.1]">
+                  <h1 className="hero-title text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black text-black leading-[0.9] tracking-tight">
                     Join Our
                   </h1>
-                  <div className="absolute -right-2 sm:right-2 lg:right-4 xl:right-6 -top-2 sm:-top-1 lg:top-0 xl:top-2 w-12 h-16 sm:w-16 sm:h-20 lg:w-20 lg:h-24 xl:w-24 xl:h-28 opacity-90 z-10">
-                    <Image 
-                      src="/ui/piyas.png" 
-                      alt="Piyas" 
-                      width={96} 
-                      height={112} 
-                      className="w-full h-full object-contain"
-                      priority
-                      sizes="(max-width: 640px) 48px, (max-width: 1024px) 64px, (max-width: 1280px) 80px, 96px"
-                    />
-                  </div>
                 </div>
                 
-                <h1 className="hero-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black leading-[1.1]">
+                <h1 className="hero-title text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black text-black leading-[0.9] tracking-tight">
                   Running Family
                 </h1>
                 
-                <h1 className="hero-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-black leading-[1.1]">
+                <h1 className="hero-title text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black text-black leading-[0.9] tracking-tight">
                   Beat Your Best
                 </h1>
-              </div>
 
-              {/* CTA Button */}
-              <button className="group bg-gradient-to-r from-[#00ead3] to-[#00d4c0] hover:from-[#00d4c0] hover:to-[#00ead3] px-4 lg:px-6 py-2 lg:py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 lg:gap-3 w-full sm:w-auto">
-                <span className="text-black font-bold text-base lg:text-lg">Join our community</span>
-                <div className="w-4 h-4 lg:w-5 lg:h-5 transition-transform group-hover:translate-x-1">
-                  <Image src="/svgs/arrow-right.svg" alt="" width={20} height={20} className="w-full h-full" />
+                {/* Runner Image - Positioned absolutely */}
+                <div className="absolute -right-8 lg:-right-12 xl:-right-16 top-1/2 -translate-y-1/2 w-48 h-64 lg:w-56 lg:h-72 xl:w-64 xl:h-80 2xl:w-72 2xl:h-96 z-10">
+                  <Image 
+                    src="/ui/piyas.png" 
+                    alt="Runner" 
+                    width={288} 
+                    height={384} 
+                    className="w-full h-full object-contain"
+                    priority
+                    sizes="(max-width: 1024px) 192px, (max-width: 1280px) 224px, (max-width: 1536px) 256px, 288px"
+                  />
                 </div>
-              </button>
+              </div>
             </Card>
           </div>
 
@@ -170,16 +158,16 @@ export function HeroSection() {
               <p className="text-sm lg:text-base text-black leading-tight">Active Community Members & Counting</p>
             </div>
             
-            <div className="flex justify-center py-2 lg:py-3">
-              <div className="w-16 h-20 lg:w-20 lg:h-24">
+            <div className="flex justify-center py-1 lg:py-2">
+              <div className="relative w-24 h-32 lg:w-32 lg:h-40">
                 <Image 
                   src="/ui/sneaker.png" 
                   alt="Running sneaker" 
-                  width={80} 
-                  height={96} 
-                  className="w-full h-full object-cover"
+                  width={128} 
+                  height={160} 
+                  className="w-full h-full object-contain"
                   priority
-                  sizes="(max-width: 1024px) 64px, 80px"
+                  sizes="(max-width: 1024px) 96px, 128px"
                 />
               </div>
             </div>

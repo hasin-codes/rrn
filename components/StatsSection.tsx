@@ -40,7 +40,7 @@ export function StatsSection() {
           <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-lg">
             <div className="h-32 relative">
               <Image 
-                src="/assets/3abcd3d56c779b500a2de82cc7668951fbc34d9c.png" 
+                src="/ui/ola3.png" 
                 alt="Events" 
                 fill
                 className="object-cover"

@@ -3,7 +3,6 @@ import localFont from 'next/font/local'
 import './globals.css'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
-import GradualBlur from '@/components/ui/gradual-blur'
 
 const texGyreAdventor = localFont({
   src: '../public/fonts/texgyreadventor-bold.otf',
@@ -118,16 +117,6 @@ export default function RootLayout({
             </div>
           </div>
 
-          <GradualBlur
-            target="parent"
-            position="bottom"
-            height="8rem"
-            strength={5}
-            divCount={10}
-            curve="bezier"
-            exponential={true}
-            opacity={0.85}
-          />
         </div>
       </body>
     </html>
