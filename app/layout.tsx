@@ -92,31 +92,19 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={texGyreAdventor.variable}>
-        <div 
-          className="min-h-screen bg-[#dcdeea]"
-          style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}
-        >
-          <div 
-            style={{ 
-              height: '100%', 
-              overflowY: 'auto', 
-              padding: '0' 
-            }}
-          >
-            {/* Navigation */}
-            
-            
-            {/* Main Content */}
-            <main>
-              {children}
-            </main>
-            
-            {/* Footer */}
-            <div className="mt-6 lg:mt-8">
-              <Footer />
-            </div>
+        <div className="min-h-screen bg-[#dcdeea]">
+          {/* Navigation */}
+          <Navbar />
+          
+          {/* Main Content */}
+          <main className="pt-32">
+            {children}
+          </main>
+          
+          {/* Footer */}
+          <div className="mt-6 lg:mt-8">
+            <Footer />
           </div>
-
         </div>
       </body>
     </html>
