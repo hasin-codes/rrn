@@ -71,7 +71,7 @@ export function Navbar() {
       <motion.nav 
         className="w-full bg-[#0A0A0A] border-b border-white/10"
         initial={{ y: 0 }}
-        animate={{ y: isScrolledDown ? -100 : 0 }}
+        animate={{ y: isScrolledDown ? -60 : 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
       >
         <div className="max-w-7xl mx-auto px-4 py-4">
