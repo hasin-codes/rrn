@@ -71,9 +71,27 @@ export function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-      {/* First Navbar - White Background */}
+      {/* First Navbar - White Background with Teal Glow */}
       <motion.nav 
-        className="w-full bg-white border-b border-gray-200"
+        className="w-full relative border-b border-gray-200"
+        style={{
+          background: "#ffffff",
+          backgroundImage: `
+                radial-gradient(
+                  circle at bottom,
+                  rgba(85, 216, 205, 0.2),
+                  transparent 99%
+                ),
+                linear-gradient(
+                  to right,
+                  rgba(85, 216, 205, 0.05) 0%,
+                  transparent 20%,
+                  transparent 80%,
+                  rgba(85, 216, 205, 0.05) 100%
+                )
+          `,
+          backgroundRepeat: "no-repeat",
+        }}
         initial={{ y: 0 }}
         animate={{ y: isScrolledDown ? -100 : 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
