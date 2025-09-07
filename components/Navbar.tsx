@@ -15,10 +15,12 @@ import {
   UserPlus,
   HandHeart,
 } from "lucide-react";
+import FlowingMenu from './FlowingMenu';
 
 export function Navbar() {
   const [isScrolledDown, setIsScrolledDown] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [showFlowingMenu, setShowFlowingMenu] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,9 +29,15 @@ export function Navbar() {
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         // Scrolling down
         setIsScrolledDown(true);
-      } else {
-        // Scrolling up
+        setShowFlowingMenu(false);
+      } else if (currentScrollY === 0) {
+        // At the top of the page
         setIsScrolledDown(false);
+        setShowFlowingMenu(true);
+      } else {
+        // Scrolling up but not at top
+        setIsScrolledDown(false);
+        setShowFlowingMenu(false);
       }
       
       setLastScrollY(currentScrollY);
@@ -39,8 +47,30 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
+  const demoItems = [
+    { 
+      link: '#', 
+      text: 'Limited slots left : RunRise Nation 15K', 
+      image: '/ui/MEDAL.png' 
+    },
+  ];
+
   return (
     <div className="fixed top-0 left-0 right-0 z-[9999] isolate">
+      {/* FlowingMenu - Only shows when at top of page */}
+      <AnimatePresence>
+        {showFlowingMenu && (
+          <motion.div
+            initial={{ y: 0 }}
+            exit={{ y: -80 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="w-full"
+            style={{ height: '80px', position: 'relative' }}
+          >
+            <FlowingMenu items={demoItems} />
+          </motion.div>
+        )}
+      </AnimatePresence>
       {/* First Navbar - White Background */}
       <motion.nav 
         className="w-full bg-white border-b border-gray-200"
