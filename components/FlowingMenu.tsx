@@ -26,7 +26,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
   const repeatedMarqueeContent = React.useMemo(() => {
     return Array.from({ length: 4 }).map((_, idx) => (
       <React.Fragment key={idx}>
-        <span className="text-[#060010] uppercase font-normal text-sm leading-[1.2] whitespace-nowrap px-[1vw]">{text}</span>
+        <span className="text-[#DFE835] uppercase font-normal text-sm leading-[1.2] whitespace-nowrap px-[1vw]">{text}</span>
         <div
           className="w-[200px] h-[4vh] mx-[2vw] rounded-[50px] bg-cover bg-center"
           style={{ backgroundImage: `url(${image})` }}
@@ -36,7 +36,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ link, text, image }) => {
   }, [text, image]);
 
   return (
-    <div className="flex-1 relative overflow-hidden text-center shadow-[0_-1px_0_0_#fff] bg-gradient-to-r from-cyan-400 via-teal-300 to-green-400">
+    <div className="flex-1 relative overflow-hidden text-center shadow-[0_-1px_0_0_#fff]" style={{ background: 'linear-gradient(to right, #06231D 0%, #063426 75%, #076653 100%)' }}>
       <a
         className="flex items-center justify-center h-full relative cursor-pointer uppercase no-underline font-semibold text-white text-sm"
         href={link}
