@@ -140,11 +140,6 @@ const NavbarMenu = () => {
       link: "#",
     },
     {
-      id: 5,
-      label: "About",
-      link: "#",
-    },
-    {
       id: 2,
       label: "Events",
       link: "#",
@@ -205,6 +200,11 @@ const NavbarMenu = () => {
           ],
         },
       ],
+    },
+    {
+      id: 5,
+      label: "About",
+      link: "#",
     },
     {
       id: 6,
