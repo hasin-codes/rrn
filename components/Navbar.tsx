@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -116,6 +116,9 @@ export function Navbar() {
 }
 
 const NavbarMenu = () => {
+  const itemRefs = useRef<Record<string, HTMLLIElement | null>>({});
+  const navbarRef = useRef<HTMLUListElement | null>(null);
+  
   type Props = {
     id: number;
     label: string;
@@ -137,76 +140,40 @@ const NavbarMenu = () => {
       link: "#",
     },
     {
-      id: 2,
+      id: 5,
       label: "About",
       link: "#",
     },
     {
-      id: 3,
+      id: 2,
       label: "Events",
-      subMenus: [
-        {
-          title: "Running Events",
-          items: [
-            {
-              label: "Marathons",
-              description: "Full and half marathon events",
-              icon: Calendar,
-            },
-            {
-              label: "5K Runs",
-              description: "Quick and fun 5K races",
-              icon: Calendar,
-            },
-            {
-              label: "Virtual Runs",
-              description: "Run anywhere, anytime",
-              icon: Calendar,
-            },
-          ],
-        },
-        {
-          title: "Training",
-          items: [
-            {
-              label: "Bootcamps",
-              description: "Intensive training sessions",
-              icon: Users,
-            },
-            {
-              label: "Pacer Groups",
-              description: "Run with experienced pacers",
-              icon: Users,
-            },
-            {
-              label: "Workshops",
-              description: "Learn running techniques",
-              icon: BookOpen,
-            },
-          ],
-        },
-      ],
+      link: "#",
     },
     {
-      id: 4,
+      id: 3,
       label: "Engage",
       subMenus: [
         {
-          title: "Community",
+          title: "Get Started",
           items: [
             {
-              label: "Stories",
-              description: "Read inspiring running stories",
+              label: "Register as Member",
+              description: "Join our running community",
+              icon: UserPlus,
+            },
+            {
+              label: "Collab",
+              description: "Partner with us",
+              icon: HandHeart,
+            },
+            {
+              label: "Showcase your stories",
+              description: "Share your journey",
               icon: BookOpen,
             },
             {
-              label: "Leaderboard",
-              description: "See top performers",
-              icon: Users,
-            },
-            {
-              label: "Challenges",
-              description: "Join community challenges",
+              label: "FAQ",
+              description: "Get answers",
               icon: Heart,
             },
           ],
@@ -214,9 +181,30 @@ const NavbarMenu = () => {
       ],
     },
     {
-      id: 5,
+      id: 4,
       label: "Race",
-      link: "#",
+      subMenus: [
+        {
+          title: "Race Day Materials",
+          items: [
+            {
+              label: "BIB",
+              description: "Get your race number",
+              icon: Package,
+            },
+            {
+              label: "Certificates",
+              description: "Download your certificates",
+              icon: BookOpen,
+            },
+            {
+              label: "Essentials",
+              description: "Race day essentials",
+              icon: Package,
+            },
+          ],
+        },
+      ],
     },
     {
       id: 6,
@@ -245,10 +233,14 @@ const NavbarMenu = () => {
   };
   
   return (
-    <ul className="relative flex items-center space-x-0 overflow-x-auto">
+    <ul
+      ref={navbarRef}
+      className="relative flex items-center space-x-0 overflow-x-auto"
+    >
       {NAV_ITEMS.map((navItem) => (
         <li
           key={navItem.label}
+          ref={(el) => { itemRefs.current[navItem.label] = el; }}
           className="relative"
           onMouseEnter={() => handleHover(navItem.label)}
           onMouseLeave={() => handleHover(null)}
@@ -279,53 +271,58 @@ const NavbarMenu = () => {
 
           <AnimatePresence>
             {openMenu === navItem.label && navItem.subMenus && (
-              <div className="fixed inset-0 pointer-events-none z-[9999]">
-                <div className="absolute top-32 left-0 right-0 flex justify-center pointer-events-auto">
-                  <div className="relative" style={{ transform: `translateX(${getMenuOffset(navItem.label)}px)` }}>
-                  <motion.div
-                    className="bg-[#0A0A0A] border border-white/10 p-4 w-max"
-                    style={{
-                      borderRadius: 16,
-                    }}
-                    layoutId="menu"
-                  >
-                    <div className="w-fit shrink-0 flex space-x-9 overflow-hidden">
-                      {navItem.subMenus.map((sub) => (
-                        <motion.div layout className="w-full" key={sub.title}>
-                          <h3 className="mb-4 text-sm font-medium capitalize text-white/50">
-                            {sub.title}
-                          </h3>
-                          <ul className="space-y-6">
-                            {sub.items.map((item) => {
-                              const Icon = item.icon;
-                              return (
-                                <li key={item.label}>
-                                  <a
-                                    href="#"
-                                    className="flex items-start space-x-3 group"
-                                  >
-                                    <div className="border border-white/30 text-white rounded-md flex items-center justify-center size-9 shrink-0 group-hover:bg-white group-hover:text-[#0A0A0A] transition-colors duration-300">
-                                      <Icon className="h-5 w-5 flex-none" />
-                                    </div>
-                                    <div className="leading-5 w-max">
-                                      <p className="text-sm font-medium text-white shrink-0">
-                                        {item.label}
-                                      </p>
-                                      <p className="text-xs text-white/50 shrink-0 group-hover:text-white transition-colors duration-300">
-                                        {item.description}
-                                      </p>
-                                    </div>
-                                  </a>
-                                </li>
-                              );
-                            })}
-                          </ul>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
+              <div
+                className="fixed z-[99999] pointer-events-auto"
+                style={{
+                  top: `${
+                    navbarRef.current?.getBoundingClientRect().bottom || 80
+                  }px`,
+                  left: `${
+                    itemRefs.current[navItem.label]?.getBoundingClientRect().left || 0
+                  }px`,
+                }}
+              >
+            
+                <motion.div
+                  className="bg-[#0A0A0A] border border-white/10 p-4 w-max"
+                  style={{ borderRadius: 16 }}
+                  layoutId="menu"
+                >
+                  <div className="w-fit shrink-0 flex space-x-9 overflow-hidden">
+                    {navItem.subMenus.map((sub) => (
+                      <motion.div layout className="w-full" key={sub.title}>
+                        <h3 className="mb-4 text-sm font-medium capitalize text-white/50">
+                          {sub.title}
+                        </h3>
+                        <ul className="space-y-6">
+                          {sub.items.map((item) => {
+                            const Icon = item.icon;
+                            return (
+                              <li key={item.label}>
+                                <a
+                                  href="#"
+                                  className="flex items-start space-x-3 group"
+                                >
+                                  <div className="border border-white/30 text-white rounded-md flex items-center justify-center size-9 shrink-0 group-hover:bg-white group-hover:text-[#0A0A0A] transition-colors duration-300">
+                                    <Icon className="h-5 w-5 flex-none" />
+                                  </div>
+                                  <div className="leading-5 w-max">
+                                    <p className="text-sm font-medium text-white shrink-0">
+                                      {item.label}
+                                    </p>
+                                    <p className="text-xs text-white/50 shrink-0 group-hover:text-white transition-colors duration-300">
+                                      {item.description}
+                                    </p>
+                                  </div>
+                                </a>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </motion.div>
+                    ))}
                   </div>
-                </div>
+                </motion.div>
               </div>
             )}
           </AnimatePresence>
