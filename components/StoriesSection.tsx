@@ -9,7 +9,7 @@ export function StoriesSection() {
   ));
 
   return (
-    <section className="w-full py-4 px-4 bg-[#dcdeea]">
+    <section className="w-full py-4 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="bg-white rounded-lg overflow-hidden shadow-sm p-4 lg:p-6 space-y-12">
         

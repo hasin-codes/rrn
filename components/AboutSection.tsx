@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 
 export function AboutSection() {
   return (
-    <section className="about-section w-full py-4 px-4 bg-[#dcdeea]">
+    <section className="about-section w-full py-4 px-4">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
         
         {/* Left Content */}

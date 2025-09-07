@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 
 export function HeroSection() {
   return (
-    <div className="w-full bg-[#dcdeea] py-4 px-4">
+    <div className="w-full py-4 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Mobile Layout: Left Card -> Events -> Right Card */}
         <div className="flex flex-col lg:hidden space-y-4">

@@ -115,9 +115,18 @@ export function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Second Navbar - Dark Background */}
+      {/* Second Navbar - Dark Dot Matrix Background */}
       <motion.nav 
-        className="w-full bg-[#0A0A0A] border-b border-white/10"
+        className="w-full border-b border-white/10 relative"
+        style={{
+          backgroundColor: '#0a0a0a',
+          backgroundImage: `
+            radial-gradient(circle at 25% 25%, #222222 0.5px, transparent 1px),
+            radial-gradient(circle at 75% 75%, #111111 0.5px, transparent 1px)
+          `,
+          backgroundSize: '10px 10px',
+          imageRendering: 'pixelated',
+        }}
         initial={{ y: 0 }}
         animate={{ y: isScrolledDown ? -60 : 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -302,8 +311,17 @@ const NavbarMenu = () => {
               >
             
                 <motion.div
-                  className="bg-[#0A0A0A] border border-white/10 p-4 w-max"
-                  style={{ borderRadius: 16 }}
+                  className="border border-white/10 p-4 w-max"
+                  style={{ 
+                    borderRadius: 16,
+                    backgroundColor: '#0a0a0a',
+                    backgroundImage: `
+                      radial-gradient(circle at 25% 25%, #222222 0.5px, transparent 1px),
+                      radial-gradient(circle at 75% 75%, #111111 0.5px, transparent 1px)
+                    `,
+                    backgroundSize: '10px 10px',
+                    imageRendering: 'pixelated',
+                  }}
                   layoutId="menu"
                 >
                   <div className="w-fit shrink-0 flex space-x-9 overflow-hidden">
