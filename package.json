@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroui/react": "^2.8.3",
+    "@heroui/theme": "^2.4.21",
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-alert-dialog": "^1.1.2",
@@ -45,6 +46,7 @@
     "date-fns": "^3.6.0",
     "embla-carousel-react": "^8.3.0",
     "framer-motion": "^12.23.12",
+    "gsap": "^3.13.0",
     "input-otp": "^1.2.4",
     "lucide-react": "^0.468.0",
     "mathjs": "^14.7.0",
@@ -75,7 +77,7 @@
     "eslint": "^8.57.1",
     "eslint-config-next": "^15.5.2",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3"
   },
   "engines": {
