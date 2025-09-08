@@ -302,12 +302,85 @@ html {
   font-family: 'NIKE', sans-serif;
 }
 
-/* Neumorphic card styles */
+/* 
+ * CENTRALIZED CARD DESIGN SYSTEM
+ * ==============================
+ * 
+ * To change ALL cards across the entire app, just modify the CSS variables below:
+ * 
+ * 🎨 CARD BACKGROUND:
+ *   --card-bg: #F0F0F3;  (change this to any color)
+ * 
+ * ✨ CARD SHADOWS (Neumorphic effect):
+ *   --card-shadow-light: -6px -6px 20px rgba(255, 255, 255, 0.6);  (white highlight)
+ *   --card-shadow-dark: 10px 10px 30px rgba(174, 174, 192, 0.4);   (dark shadow)
+ * 
+ * 🔲 CARD BORDERS:
+ *   --card-border: none;  (or "2px solid #color" for borders)
+ *   --card-border-radius: 0.5rem;  (rounded corners)
+ * 
+ * 📏 CARD SPACING:
+ *   --card-padding: 1rem 1.5rem;  (internal spacing)
+ *   --card-gap: 1.5rem;  (space between cards)
+ * 
+ * 🎯 USAGE:
+ *   - Use .neumorphic-card for the current soft UI effect
+ *   - Use .card-elevated for traditional elevated cards
+ *   - Use .card-flat for flat design cards
+ * 
+ * 💡 EXAMPLE CHANGES:
+ *   - Want darker cards? Change --card-bg to #E0E0E3
+ *   - Want stronger shadows? Increase the blur values in shadow variables
+ *   - Want borders? Change --card-border to "2px solid #color"
+ *   - Want different padding? Change --card-padding to "2rem 3rem"
+ */
+:root {
+  /* Card Background */
+  --card-bg: #F0F0F3;
+  
+  /* Card Shadows */
+  --card-shadow-light: -6px -6px 20px rgba(255, 255, 255, 0.6);
+  --card-shadow-dark: 10px 10px 30px rgba(174, 174, 192, 0.4);
+  
+  /* Card Border */
+  --card-border: none;
+  --card-border-radius: 0.5rem; /* rounded-lg */
+  
+  /* Card Padding */
+  --card-padding: 1rem 1.5rem; /* p-4 lg:p-6 */
+  
+  /* Card Spacing */
+  --card-gap: 1.5rem; /* gap-6 */
+}
+
+/* Neumorphic card styles - uses centralized variables */
 .neumorphic-card {
-  background-color: #F0F0F3;
+  background-color: var(--card-bg);
+  border: var(--card-border);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
   box-shadow: 
-    -6px -6px 20px rgba(255, 255, 255, 0.6),
-    10px 10px 30px rgba(174, 174, 192, 0.4);
+    var(--card-shadow-light),
+    var(--card-shadow-dark);
+}
+
+/* Alternative card styles for different effects */
+.card-elevated {
+  background-color: var(--card-bg);
+  border: var(--card-border);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.1),
+    0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card-flat {
+  background-color: var(--card-bg);
+  border: var(--card-border);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  box-shadow: none;
 }
 
 /*---break---

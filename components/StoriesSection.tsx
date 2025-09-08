@@ -11,7 +11,7 @@ export function StoriesSection() {
   return (
     <section className="w-full py-4 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="neumorphic-card rounded-lg overflow-hidden p-4 lg:p-6 space-y-12">
+        <div className="neumorphic-card overflow-hidden space-y-12">
         
         {/* Header */}
         <div className="text-center space-y-6">

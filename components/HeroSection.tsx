@@ -9,7 +9,7 @@ export function HeroSection() {
         {/* Mobile Layout: Left Card -> Events -> Right Card */}
         <div className="flex flex-col lg:hidden space-y-4">
           {/* Left Card - Main Hero Content */}
-          <Card className="p-6 sm:p-8 md:p-10 neumorphic-card flex flex-col justify-center rounded-lg relative overflow-hidden">
+          <Card className="neumorphic-card flex flex-col justify-center relative overflow-hidden" style={{padding: "1.5rem 2rem 2.5rem 2rem"}}>
             {/* Hero Text */}
             <div className="space-y-0 relative">
               <div className="relative">
@@ -42,7 +42,7 @@ export function HeroSection() {
           </Card>
 
           {/* Events Section - Mobile */}
-          <div className="neumorphic-card rounded-lg overflow-hidden">
+          <div className="neumorphic-card overflow-hidden">
             {/* Header */}
             <div className="grid grid-cols-3 py-3 px-6">
               <div className="text-left">
@@ -82,7 +82,7 @@ export function HeroSection() {
           </div>
 
           {/* Right Card - Community Stats */}
-          <Card className="p-4 lg:p-6 neumorphic-card text-center space-y-3 lg:space-y-4 flex flex-col justify-center rounded-lg">
+          <Card className="neumorphic-card text-center space-y-3 lg:space-y-4 flex flex-col justify-center">
           <div className="space-y-1">
               <h2 className="hero-stats text-2xl lg:text-3xl font-bold text-black">
                 <CountUp from={0} to={203} duration={2} className="count-up-text" />
@@ -115,7 +115,7 @@ export function HeroSection() {
         <div className="hidden lg:grid grid-cols-3 gap-4 lg:gap-6 items-stretch hero-content">
           {/* Main Hero Content */}
           <div className="lg:col-span-2 space-y-4 lg:space-y-0">
-            <Card className="p-8 lg:p-10 xl:p-12 neumorphic-card h-full flex flex-col justify-center rounded-lg relative overflow-hidden">
+            <Card className="neumorphic-card h-full flex flex-col justify-center relative overflow-hidden" style={{padding: "2rem 2.5rem 2.5rem 2.5rem"}}>
               {/* Hero Text */}
               <div className="space-y-0 relative">
                 <div className="relative">
@@ -149,7 +149,7 @@ export function HeroSection() {
           </div>
 
           {/* Community Stats */}
-          <Card className="p-4 lg:p-6 neumorphic-card text-center space-y-3 lg:space-y-4 h-full flex flex-col justify-center rounded-lg">
+          <Card className="neumorphic-card text-center space-y-3 lg:space-y-4 h-full flex flex-col justify-center">
             <div className="space-y-1">
               <h2 className="hero-stats text-2xl lg:text-3xl font-bold text-black">
                 <CountUp from={0} to={203} duration={2} className="count-up-text" />

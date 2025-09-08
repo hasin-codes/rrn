@@ -5,7 +5,7 @@ export function StatsSection() {
   return (
     <section className="w-full py-4 px-4">
       <div className="max-w-7xl mx-auto">
-        <Card className="neumorphic-card p-4 lg:p-6 space-y-12 rounded-lg">
+        <Card className="neumorphic-card space-y-12">
         
         {/* Header */}
         <div className="text-center space-y-6">
