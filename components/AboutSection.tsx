@@ -10,7 +10,7 @@ export function AboutSection() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
         
         {/* Left Content */}
-        <Card className="p-4 lg:p-6 shadow-sm space-y-4 lg:space-y-6 order-2 lg:order-1 flex flex-col bg-white rounded-sm">
+        <Card className="p-4 lg:p-6 neumorphic-card space-y-4 lg:space-y-6 order-2 lg:order-1 flex flex-col rounded-lg">
           <div className="w-fit px-2 py-1 bg-[#D5FFF8] border border-[#00D8D2] rounded backdrop-blur-sm">
             <span className="text-[#00827e] font-bold text-sm lg:text-base">Community</span>
           </div>
@@ -72,7 +72,7 @@ export function AboutSection() {
         </Card>
 
         {/* Right Testimonials */}
-        <Card className="p-3 lg:p-4 shadow-sm order-1 lg:order-2 h-full bg-white rounded-sm">
+        <Card className="p-3 lg:p-4 neumorphic-card order-1 lg:order-2 h-full rounded-lg">
           <div className="h-full">
             <AnimatedTestimonials 
               testimonials={testimonialData} 

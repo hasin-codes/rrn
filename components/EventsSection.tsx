@@ -5,7 +5,7 @@ export default function EventsSection() {
   return (
     <section className="w-full py-4 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-white rounded-lg overflow-hidden shadow-sm">
+        <div className="neumorphic-card rounded-lg overflow-hidden">
           
           {/* Header */}
           <div className="grid grid-cols-3 py-3 px-6">
