@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import {
   ChevronDown,
   Home,
@@ -115,10 +116,10 @@ export function Navbar() {
 
             {/* Right side buttons */}
             <div className="flex items-center space-x-4">
-              <button className="flex items-center space-x-2 text-gray-700 hover:text-black transition-colors">
+              <Link href="/profile" className="flex items-center space-x-2 text-gray-700 hover:text-black transition-colors">
                 <LogIn className="h-4 w-4" />
-                <span className="text-sm font-medium">Sign In</span>
-              </button>
+                <span className="text-sm font-medium">Profile</span>
+              </Link>
               
             </div>
           </div>
@@ -174,12 +175,12 @@ const NavbarMenu = () => {
     {
       id: 1,
       label: "Home",
-      link: "#",
+      link: "/",
     },
     {
       id: 2,
       label: "Events",
-      link: "#",
+      link: "/events",
     },
     {
       id: 3,
@@ -241,12 +242,12 @@ const NavbarMenu = () => {
     {
       id: 5,
       label: "About",
-      link: "#",
+      link: "/about",
     },
     {
       id: 6,
       label: "Blog",
-      link: "#",
+      link: "/blog",
     },
   ];
 
@@ -282,29 +283,49 @@ const NavbarMenu = () => {
           onMouseEnter={() => handleHover(navItem.label)}
           onMouseLeave={() => handleHover(null)}
         >
-          <button
-            className="text-sm py-1.5 px-4 flex cursor-pointer group transition-colors duration-300 items-center justify-center gap-1 text-white/50 hover:text-white relative"
-            onMouseEnter={() => setIsHover(navItem.id)}
-            onMouseLeave={() => setIsHover(null)}
-          >
-            <span>{navItem.label}</span>
-            {navItem.subMenus && (
-              <ChevronDown
-                className={`h-4 w-4 group-hover:rotate-180 duration-300 transition-transform
-                ${openMenu === navItem.label ? "rotate-180" : ""}
-                `}
-              />
-            )}
-            {(isHover === navItem.id || openMenu === navItem.label) && (
-              <motion.div
-                layoutId="hover-bg"
-                className="absolute inset-0 size-full bg-white/10"
-                style={{
-                  borderRadius: 99,
-                }}
-              />
-            )}
-          </button>
+          {navItem.link ? (
+            <Link
+              href={navItem.link}
+              className="text-sm py-1.5 px-4 flex cursor-pointer group transition-colors duration-300 items-center justify-center gap-1 text-white/50 hover:text-white relative"
+              onMouseEnter={() => setIsHover(navItem.id)}
+              onMouseLeave={() => setIsHover(null)}
+            >
+              <span>{navItem.label}</span>
+              {(isHover === navItem.id || openMenu === navItem.label) && (
+                <motion.div
+                  layoutId="hover-bg"
+                  className="absolute inset-0 size-full bg-white/10"
+                  style={{
+                    borderRadius: 99,
+                  }}
+                />
+              )}
+            </Link>
+          ) : (
+            <button
+              className="text-sm py-1.5 px-4 flex cursor-pointer group transition-colors duration-300 items-center justify-center gap-1 text-white/50 hover:text-white relative"
+              onMouseEnter={() => setIsHover(navItem.id)}
+              onMouseLeave={() => setIsHover(null)}
+            >
+              <span>{navItem.label}</span>
+              {navItem.subMenus && (
+                <ChevronDown
+                  className={`h-4 w-4 group-hover:rotate-180 duration-300 transition-transform
+                  ${openMenu === navItem.label ? "rotate-180" : ""}
+                  `}
+                />
+              )}
+              {(isHover === navItem.id || openMenu === navItem.label) && (
+                <motion.div
+                  layoutId="hover-bg"
+                  className="absolute inset-0 size-full bg-white/10"
+                  style={{
+                    borderRadius: 99,
+                  }}
+                />
+              )}
+            </button>
+          )}
 
           <AnimatePresence>
             {openMenu === navItem.label && navItem.subMenus && (
@@ -343,10 +364,25 @@ const NavbarMenu = () => {
                         <ul className="space-y-6">
                           {sub.items.map((item) => {
                             const Icon = item.icon;
+                            
+                            // Map dropdown items to their respective pages
+                            const getItemLink = (label: string) => {
+                              const linkMap: { [key: string]: string } = {
+                                "Register as Member": "/engage/register",
+                                "Collab": "/engage/collab",
+                                "Showcase your stories": "/engage/stories",
+                                "FAQ": "/engage/faq",
+                                "BIB": "/race/bib",
+                                "Certificates": "/race/certificates",
+                                "Essentials": "/race/essentials"
+                              };
+                              return linkMap[label] || "#";
+                            };
+                            
                             return (
                               <li key={item.label}>
-                                <a
-                                  href="#"
+                                <Link
+                                  href={getItemLink(item.label)}
                                   className="flex items-start space-x-3 group"
                                 >
                                   <div className="border border-white/30 text-white rounded-md flex items-center justify-center size-9 shrink-0 group-hover:bg-white group-hover:text-[#0A0A0A] transition-colors duration-300">
@@ -360,7 +396,7 @@ const NavbarMenu = () => {
                                       {item.description}
                                     </p>
                                   </div>
-                                </a>
+                                </Link>
                               </li>
                             );
                           })}

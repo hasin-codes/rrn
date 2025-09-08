@@ -13,12 +13,6 @@ const GALLERY_IMAGES = [
 
 const TESTIMONIALS = [
   {
-    quote: "RunRise Nation transformed my running journey completely. The community support and expert guidance helped me achieve my first marathon in under 4 hours!",
-    name: "Sarah Johnson",
-    designation: "Marathon Runner",
-    src: "/assets/3c491d433ad9ab6cea13157d6eae5e540dbe0282.png",
-  },
-  {
     quote: "The training programs here are incredible. I went from struggling with 5K to completing my first half marathon. The pacers are amazing!",
     name: "Mike Chen",
     designation: "Half Marathon Finisher",
