@@ -151,17 +151,17 @@ const StatsCard = ({ isMobile = false }: { isMobile?: boolean }) => {
 
 export function HeroSection() {
   return (
-    <div className="w-full py-4 px-4">
+    <div className="w-full px-4">
       <div className="max-w-7xl mx-auto">
         {/* Mobile Layout */}
-        <div className="flex flex-col lg:hidden space-y-4">
+        <div className="flex flex-col lg:hidden space-y-4 pt-4">
           <HeroContent isMobile />
           <EventsCard />
           <StatsCard isMobile />
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:grid grid-cols-3 gap-4 lg:gap-6 items-stretch hero-content">
+        <div className="hidden lg:grid grid-cols-3 gap-4 lg:gap-6 items-stretch hero-content py-4">
           <div className="lg:col-span-2">
             <HeroContent />
           </div>
