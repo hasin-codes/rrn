@@ -21,9 +21,9 @@ const RunnerImage = ({
   width: number; 
   height: number; 
 }) => (
-  <Image 
-    src="/ui/piyas.png" 
-    alt="Runner" 
+                <Image 
+                  src="/ui/piyas.png" 
+                  alt="Runner" 
     width={width} 
     height={height} 
     className="w-full h-full object-contain"
@@ -52,12 +52,12 @@ const SneakerImage = () => (
         alt="Running sneaker" 
         width={128} 
         height={160} 
-        className="w-full h-full object-contain"
-        priority
+                  className="w-full h-full object-contain"
+                  priority
         sizes="(max-width: 1024px) 96px, 128px"
-      />
-    </div>
-  </div>
+                />
+              </div>
+            </div>
 );
 
 const JoinButton = () => (
@@ -68,30 +68,30 @@ const JoinButton = () => (
 
 const EventsCard = () => (
   <div className="neumorphic-card overflow-hidden">
-    <div className="grid grid-cols-3 py-3 px-6">
+            <div className="grid grid-cols-3 py-3 px-6">
       <h3 className="text-sm lg:text-base xl:text-lg font-bold text-black text-left">Training</h3>
       <h3 className="text-sm lg:text-base xl:text-lg font-bold text-black text-center">Community</h3>
       <h3 className="text-sm lg:text-base xl:text-lg font-bold text-black text-right">Events 2025</h3>
-    </div>
+            </div>
 
-    <div className="px-6 pb-2">
-      <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 rounded-lg overflow-hidden">
-        <Image 
-          src="/ui/hero.png" 
-          alt="Events hero" 
-          fill
-          className="object-cover"
-          priority
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
-        />
-      </div>
-    </div>
+            <div className="px-6 pb-2">
+              <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80 rounded-lg overflow-hidden">
+                <Image 
+                  src="/ui/hero.png" 
+                  alt="Events hero" 
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
+                />
+              </div>
+            </div>
 
-    <div className="grid grid-cols-2 py-3 px-6">
+            <div className="grid grid-cols-2 py-3 px-6">
       <h3 className="text-base sm:text-lg lg:text-xl font-bold text-black text-left">View Pacers</h3>
       <h3 className="text-base sm:text-lg lg:text-xl font-bold text-black text-right">Team</h3>
-    </div>
-  </div>
+              </div>
+            </div>
 );
 
 const HeroContent = ({ isMobile = false }: { isMobile?: boolean }) => {
@@ -118,19 +118,19 @@ const HeroContent = ({ isMobile = false }: { isMobile?: boolean }) => {
       <div className="space-y-0 relative">
         <div className="relative">
           <HeroTitle text={HERO_TEXTS[0]} className={titleClasses} />
-        </div>
+          </div>
         <HeroTitle text={HERO_TEXTS[1]} className={titleClasses} />
         <HeroTitle text={HERO_TEXTS[2]} className={titleClasses} />
 
         <div className={runnerClasses}>
           <RunnerImage 
-            className="w-full h-full object-contain"
+                  className="w-full h-full object-contain"
             sizes={runnerSizes}
             width={runnerDimensions.width}
             height={runnerDimensions.height}
-          />
-        </div>
-      </div>
+                />
+              </div>
+          </div>
     </Card>
   );
 };
@@ -145,7 +145,7 @@ const StatsCard = ({ isMobile = false }: { isMobile?: boolean }) => {
       <CommunityStats />
       <SneakerImage />
       <JoinButton />
-    </Card>
+          </Card>
   );
 };
 
@@ -167,7 +167,7 @@ export function HeroSection() {
           </div>
           <div>
             <StatsCard />
-          </div>
+            </div>
         </div>
       </div>
     </div>
