@@ -343,7 +343,7 @@ html {
   --card-shadow-dark: 10px 10px 30px rgba(174, 174, 192, 0.4);
   
   /* Card Border */
-  --card-border: none;
+  --card-border: 4px solid white;
   --card-border-radius: 0.5rem; /* rounded-lg */
   
   /* Card Padding */

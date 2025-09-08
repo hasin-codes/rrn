@@ -94,7 +94,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body className={texGyreAdventor.variable}>
-        <div className="min-h-screen bg-gradient-to-br from-[#D4D8E8] via-[#E2E6F0] to-[#D8DCE8]">
+        <div className="min-h-screen bg-gradient-to-br from-[#B8BCC8] via-[#C8CCD8] to-[#BCC0CC]">
           {/* Navigation */}
           <Navbar />
           
