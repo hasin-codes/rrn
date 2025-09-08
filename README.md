@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # RunRise Nation - Next.js Web Application
+=======
+# RunRise Nation
+>>>>>>> 79aa79815ab764ce5141196b4ee3175fbc1ce71d
 
 A modern, production-ready running community website built with Next.js 15, featuring a sophisticated neumorphic design system and centralized component architecture.
 
@@ -279,4 +283,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ by the RunRise Nation Team**
 
+<<<<<<< HEAD
 *"Every step has meaning"* - Join our running community and discover the joy of running together.
+=======
+*"Every step has meaning"* - Join our running community and discover the joy of running together.
+>>>>>>> 79aa79815ab764ce5141196b4ee3175fbc1ce71d
