@@ -26,44 +26,44 @@ const RunnerImage = ({
                   alt="Runner" 
     width={width} 
     height={height} 
-    className="w-full h-full object-contain"
-    priority
+                  className="w-full h-full object-contain"
+                  priority
     sizes={sizes}
   />
 );
 
 const CommunityStats = () => (
-  <div className="space-y-1">
-    <h2 className="hero-stats text-2xl lg:text-3xl font-bold text-black">
+          <div className="space-y-1">
+              <h2 className="hero-stats text-2xl lg:text-3xl font-bold text-black">
       <CountUp from={0} to={COMMUNITY_COUNT} duration={2} className="count-up-text" />
-      <span>+</span>
-    </h2>
+                <span>+</span>
+              </h2>
     <p className="text-sm lg:text-base text-black leading-tight">
       Active Community Members & Counting
     </p>
-  </div>
+          </div>
 );
-
+          
 const SneakerImage = () => (
-  <div className="flex justify-center py-1 lg:py-2">
-    <div className="relative w-24 h-32 lg:w-32 lg:h-40">
-      <Image 
-        src="/ui/sneaker.png" 
-        alt="Running sneaker" 
-        width={128} 
-        height={160} 
+          <div className="flex justify-center py-1 lg:py-2">
+              <div className="relative w-24 h-32 lg:w-32 lg:h-40">
+                <Image 
+                  src="/ui/sneaker.png" 
+                  alt="Running sneaker" 
+                  width={128} 
+                  height={160} 
                   className="w-full h-full object-contain"
                   priority
-        sizes="(max-width: 1024px) 96px, 128px"
+                  sizes="(max-width: 1024px) 96px, 128px"
                 />
               </div>
-            </div>
+          </div>
 );
-
+          
 const JoinButton = () => (
-  <button className="w-full bg-gradient-to-r from-[#00ead3] to-[#00d4c0] hover:from-[#00d4c0] hover:to-[#00ead3] px-3 lg:px-4 py-2 rounded-full text-black font-bold text-sm lg:text-base transition-all duration-300 hover:shadow-lg">
+          <button className="w-full bg-gradient-to-r from-[#00ead3] to-[#00d4c0] hover:from-[#00d4c0] hover:to-[#00ead3] px-3 lg:px-4 py-2 rounded-full text-black font-bold text-sm lg:text-base transition-all duration-300 hover:shadow-lg">
     {BUTTON_TEXT}
-  </button>
+          </button>
 );
 
 const EventsCard = () => (
@@ -72,20 +72,20 @@ const EventsCard = () => (
       <h3 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold text-black text-left">Training</h3>
       <h3 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold text-black text-center">Community</h3>
       <h3 className="text-sm sm:text-base lg:text-lg xl:text-xl font-bold text-black text-right">Events 2025</h3>
-    </div>
-
+                </div>
+                
     <div className="px-8 sm:px-10 pb-3">
       <div className="relative w-full h-52 sm:h-60 md:h-68 lg:h-72 xl:h-80 rounded-lg overflow-hidden">
-        <Image 
+                  <Image 
           src="/ui/hero.png" 
           alt="Events hero" 
           fill
           className="object-cover"
-          priority
+                    priority
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
-        />
-      </div>
-    </div>
+                  />
+                </div>
+              </div>
 
     <div className="grid grid-cols-2 py-4 px-8 sm:px-10">
       <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-black text-left">View Pacers</h3>
@@ -130,7 +130,7 @@ const HeroContent = ({ isMobile = false }: { isMobile?: boolean }) => {
             height={runnerDimensions.height}
                 />
               </div>
-          </div>
+            </div>
     </Card>
   );
 };

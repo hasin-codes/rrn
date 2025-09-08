@@ -5,14 +5,14 @@ import { TextGif } from "@/components/ui/text-gif";
 
 export function Footer() {
   return (
-    <footer className="w-full bg-[#001c1f] rounded-t-[40px] px-6 py-6">
-      <div className="max-w-7xl mx-auto space-y-12">
+    <footer className="w-full bg-[#001c1f] rounded-t-[40px] px-4 sm:px-6 pt-12 pb-2 sm:pt-16 sm:pb-4">
+      <div className="max-w-7xl mx-auto space-y-3 sm:space-y-6">
         
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12">
           
           {/* Left Side - CTA */}
-          <div className="space-y-4 sm:space-y-6 text-center lg:text-left">
+          <div className="space-y-2 sm:space-y-4 lg:space-y-6 text-center lg:text-left">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
               Run with your people.
             </h2>
@@ -27,21 +27,25 @@ export function Footer() {
           </div>
 
           {/* Right Side - Navigation & Contact */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6 lg:gap-8">
             
             {/* Navigation */}
-            <div className="space-y-4">
-              <div className="flex flex-wrap gap-3 sm:gap-6">
-                <a href="#" className="text-white hover:text-gray-300 transition-colors">Home</a>
-                <a href="#" className="text-white hover:text-gray-300 transition-colors">Events</a>
-                <a href="#" className="text-white hover:text-gray-300 transition-colors">Blog</a>
-                <a href="#" className="text-white hover:text-gray-300 transition-colors">Engage</a>
-                <a href="#" className="text-white hover:text-gray-300 transition-colors">Sponsorship</a>
+            <div className="space-y-3">
+              <h3 className="text-white font-bold text-sm uppercase tracking-wide mb-2">Quick Links</h3>
+              <div className="grid grid-cols-2 gap-2">
+                <a href="/" className="text-white hover:text-gray-300 transition-colors text-sm py-1">Home</a>
+                <a href="/events" className="text-white hover:text-gray-300 transition-colors text-sm py-1">Events</a>
+                <a href="/about" className="text-white hover:text-gray-300 transition-colors text-sm py-1">About</a>
+                <a href="/blog" className="text-white hover:text-gray-300 transition-colors text-sm py-1">Blog</a>
+                <a href="/profile" className="text-white hover:text-gray-300 transition-colors text-sm py-1">Profile</a>
+                <a href="/engage/register" className="text-white hover:text-gray-300 transition-colors text-sm py-1">Register</a>
+                <a href="/engage/faq" className="text-white hover:text-gray-300 transition-colors text-sm py-1">FAQ</a>
+                <a href="/race/bib" className="text-white hover:text-gray-300 transition-colors text-sm py-1">Race BIB</a>
               </div>
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-4">
+            <div className="space-y-2 sm:space-y-4">
               <div>
                 <h3 className="text-white font-bold mb-2">Location</h3>
                 <p className="text-white text-xs leading-relaxed">
@@ -59,7 +63,7 @@ export function Footer() {
         </div>
 
         {/* Social Media */}
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center gap-2 sm:gap-4">
           <div className="w-12 h-12 bg-white/10 backdrop-blur-lg rounded-xl p-2 hover:bg-white/20 transition-all cursor-pointer">
             <Image src="/svgs/whatsapp.svg" alt="WhatsApp" width={32} height={32} className="w-full h-full" />
           </div>
@@ -78,7 +82,7 @@ export function Footer() {
         <div className="w-full h-px bg-[#00827E]" />
 
         {/* Bottom Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-3 sm:gap-6">
           <p className="text-white text-sm">© 2025, RunRise Nation</p>
           
           <div className="flex items-center gap-3">

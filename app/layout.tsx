@@ -99,12 +99,12 @@ export default function RootLayout({
           <Navbar />
           
           {/* Main Content */}
-          <main className="pt-24 transition-all duration-300 ease-in-out" id="main-content">
+          <main className="pt-24 pb-8 transition-all duration-300 ease-in-out" id="main-content">
             {children}
           </main>
           
           {/* Footer */}
-          <div className="mt-6 lg:mt-8">
+          <div className="mt-4 sm:mt-6">
             <Footer />
           </div>
         </div>
