@@ -1,6 +1,6 @@
 # Robots.txt for RunRise Nation
 # Generated automatically based on site structure
-# Last updated: 2025-09-08T04:59:58.385Z
+# Last updated: 2025-09-08T05:07:54.927Z
 
 User-agent: *
 
