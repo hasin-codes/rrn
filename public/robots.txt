@@ -1,0 +1,92 @@
+# Robots.txt for RunRise Nation
+# Generated automatically based on site structure
+# Last updated: 2025-09-08T04:59:58.385Z
+
+User-agent: *
+
+# Allow access to main content pages
+Allow: /
+Allow: /about
+Allow: /events
+Allow: /blog
+Allow: /engage/register
+Allow: /engage/collab
+Allow: /engage/stories
+Allow: /engage/faq
+Allow: /race/essentials
+
+# Disallow access to private/user-specific content
+Disallow: /profile
+Disallow: /race/bib
+Disallow: /race/certificates
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /private/
+
+# Disallow common patterns
+Disallow: /*.json$
+Disallow: /*.xml$
+Disallow: /*.txt$
+Disallow: /_next/static/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /tmp/
+
+# Allow specific file types that are useful for SEO
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.gif$
+Allow: /*.svg$
+Allow: /*.webp$
+Allow: /*.ico$
+
+# Crawl delay (optional - be respectful to search engines)
+Crawl-delay: 1
+
+# Sitemap locations
+Sitemap: https://runrisenation.com/sitemap.xml
+Sitemap: https://runrisenation.com/sitemap-index.xml
+
+# Specific rules for different search engines
+
+# Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+# Block aggressive crawlers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /

@@ -4,9 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run generate:all && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate:sitemap": "node scripts/generate-sitemap.js",
+    "generate:robots": "node scripts/generate-robots.js",
+    "generate:glm": "node scripts/generate-glm-txt.js",
+    "generate:all": "npm run generate:sitemap && npm run generate:robots && npm run generate:glm",
+    "seo:generate": "npm run generate:all",
+    "postbuild": "echo 'SEO files generated successfully'"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
