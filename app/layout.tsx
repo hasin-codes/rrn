@@ -99,7 +99,7 @@ export default function RootLayout({
           <Navbar />
           
           {/* Main Content */}
-          <main className="pt-32">
+          <main className="pt-24 transition-all duration-300 ease-in-out" id="main-content">
             {children}
           </main>
           
