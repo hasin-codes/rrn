@@ -21,44 +21,44 @@ const GALLERY_IMAGES = [
 ] as const;
 
 const CommunityBadge = () => (
-  <div className="inline-block px-4 py-2 bg-[#D5FFF8] border border-[#00D8D2] rounded backdrop-blur-sm">
-    <span className="text-[#00827e] font-bold">Community</span>
-  </div>
+            <div className="inline-block px-4 py-2 bg-[#D5FFF8] border border-[#00D8D2] rounded backdrop-blur-sm">
+              <span className="text-[#00827e] font-bold">Community</span>
+            </div>
 );
-
+            
 const SectionHeader = () => (
   <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
     <div className="space-y-4">
       <CommunityBadge />
-      <h2 className="text-3xl sm:text-3xl md:text-5xl font-normal text-black leading-tight">
-        A Running Tribe That Pushes Beyond Every Finish Line.
-      </h2>
-    </div>
+            <h2 className="text-3xl sm:text-3xl md:text-5xl font-normal text-black leading-tight">
+              A Running Tribe That Pushes Beyond Every Finish Line.
+            </h2>
+          </div>
 
-    <div className="space-y-4">
-      <h3 className="text-4xl font-italic text-black font-nike">#PerfectPacers</h3>
-      
-      <div className="flex -space-x-2">
+          <div className="space-y-4">
+            <h3 className="text-4xl font-italic text-black font-nike">#PerfectPacers</h3>
+            
+            <div className="flex -space-x-2">
         <AnimatedTooltip items={PACER_DATA} />
-      </div>
-      
-      <p className="text-gray-600 max-w-md">
-        Connect with elite pacers and shape your stride, speed, and stamina with purpose. We've crafted the ultimate track for growth.
-      </p>
-    </div>
-  </div>
+            </div>
+            
+            <p className="text-gray-600 max-w-md">
+              Connect with elite pacers and shape your stride, speed, and stamina with purpose. We've crafted the ultimate track for growth.
+            </p>
+          </div>
+        </div>
 );
-
+          
 const EventInfo = () => (
-  <div className="space-y-6">
-    <h3 className="text-3xl font-bold text-black leading-tight">
-      Regular Event Bootcamp
-    </h3>
-    
-    <p className="text-gray-600 text-sm leading-relaxed">
-      Pace yourself alongside passionate runners and certified trainers in dynamic solo or group runs.
-    </p>
-  </div>
+          <div className="space-y-6">
+            <h3 className="text-3xl font-bold text-black leading-tight">
+              Regular Event Bootcamp
+            </h3>
+            
+            <p className="text-gray-600 text-sm leading-relaxed">
+              Pace yourself alongside passionate runners and certified trainers in dynamic solo or group runs.
+            </p>
+          </div>
 );
 
 const GalleryImage = ({ src, alt }: { src: string; alt: string }) => (
@@ -91,8 +91,8 @@ export function PacersSection() {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <EventInfo />
-          </div>
-
+</div>
+        
           <ImageGallery />
         </div>
       </div>

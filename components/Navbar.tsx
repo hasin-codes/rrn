@@ -25,19 +25,29 @@ export function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const mainContent = document.getElementById('main-content');
       
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down
+        // Scrolling down - hide flowing menu, reduce padding
         setIsScrolledDown(true);
         setShowFlowingMenu(false);
+        if (mainContent) {
+          mainContent.className = 'pt-16 transition-all duration-300 ease-in-out'; // Reduced padding
+        }
       } else if (currentScrollY === 0) {
-        // At the top of the page
+        // At the top of the page - show flowing menu, full padding
         setIsScrolledDown(false);
         setShowFlowingMenu(true);
+        if (mainContent) {
+          mainContent.className = 'pt-24 transition-all duration-300 ease-in-out'; // Full padding
+        }
       } else {
-        // Scrolling up but not at top
+        // Scrolling up but not at top - hide flowing menu, reduced padding
         setIsScrolledDown(false);
         setShowFlowingMenu(false);
+        if (mainContent) {
+          mainContent.className = 'pt-16 transition-all duration-300 ease-in-out'; // Reduced padding
+        }
       }
       
       setLastScrollY(currentScrollY);
