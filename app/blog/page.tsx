@@ -8,7 +8,8 @@ export default function BlogPage() {
       date: "January 15, 2025",
       category: "Tips",
       readTime: "5 min read",
-      author: "Coach Mike"
+      author: "Coach Mike",
+      slug: "10-essential-tips-beginner-runners"
     },
     {
       title: "The Science of Running Recovery",
@@ -108,7 +109,7 @@ export default function BlogPage() {
                 {blogPosts.map((post, index) => (
                   <Link 
                     key={index} 
-                    href={index === 0 ? "/blog/10-essential-tips-beginner-runners" : "#"}
+                    href={post.slug ? `/blog/${post.slug}` : "#"}
                     className="blog-card group cursor-pointer"
                   >
                     {/* Text Content Section */}

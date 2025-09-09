@@ -11,9 +11,10 @@ interface ConditionalLayoutProps {
 export function ConditionalLayout({ children }: ConditionalLayoutProps) {
   const pathname = usePathname();
   const isProfilePage = pathname.startsWith('/profile');
+  const isBlogDetailPage = pathname.startsWith('/blog/') && pathname !== '/blog';
 
-  if (isProfilePage) {
-    // For profile pages, only render children (no navbar, no footer)
+  if (isProfilePage || isBlogDetailPage) {
+    // For profile pages and blog detail pages, only render children (no navbar, no footer)
     return <>{children}</>;
   }
 

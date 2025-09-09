@@ -1,8 +1,31 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Instagram, Facebook, Twitter, Copy, Clock } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { X, Instagram, Facebook, Twitter, Copy, Clock, ArrowUpRight } from 'lucide-react';
 
-export default function BlogDetailPage() {
+export default function BlogDetailPage({ params }: { params: { slug: string } }) {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  // Scroll detection for back to top button
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show back to top button when user scrolls past the thumbnail and title section
+      const scrollPosition = window.scrollY;
+      const triggerPoint = 600; // Adjust this value based on when thumbnail/title section ends
+      setShowBackToTop(scrollPosition > triggerPoint);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // Reading time calculation (average 200 words per minute)
   const blogContent = `
 # 10 Essential Tips for Beginner Runners
@@ -91,7 +114,18 @@ The road ahead may seem long, but every step you take brings you closer to your 
 
   return (
     <>
-      <div className="w-full py-4 px-4 pt-20">
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 group"
+          title="Back to top"
+        >
+          <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700 group-hover:text-gray-900 transition-colors rotate-45" />
+        </button>
+      )}
+
+      <div className="w-full py-4 px-4 pt-16 sm:pt-20">
         <div className="max-w-7xl mx-auto">
           <div 
             className="neumorphic-card overflow-hidden space-y-8 relative"
@@ -104,16 +138,6 @@ The road ahead may seem long, but every step you take brings you closer to your 
               backgroundSize: "8px 8px, 32px 32px, 32px 32px",
             }}
           >
-            {/* Back Button */}
-            <div className="flex items-center px-4">
-              <Link 
-                href="/blog" 
-                className="flex items-center gap-2 text-[#00827e] hover:text-[#00D8D2] transition-colors duration-300"
-              >
-                <ArrowLeft className="h-3 w-3 sm:h-4 sm:w-4" />
-                <span className="text-xs sm:text-sm font-medium">Back to Blog</span>
-              </Link>
-            </div>
 
             {/* Blog Category Box */}
             <div className="flex justify-start px-4">
@@ -123,7 +147,17 @@ The road ahead may seem long, but every step you take brings you closer to your 
             </div>
 
             {/* Writer Info and Title Container */}
-            <div className="text-center space-y-4 px-4">
+            <div className="text-center space-y-4 px-4 relative">
+              {/* Circular Close Button - Centered above Coach Mike's name */}
+              <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-10">
+                <Link 
+                  href="/blog" 
+                  className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 group"
+                >
+                  <X className="h-3 w-3 sm:h-4 sm:w-4 text-gray-700 group-hover:text-gray-900 transition-colors" />
+                </Link>
+              </div>
+              
               <div className="space-y-2">
                 <h2 className="text-base sm:text-lg font-semibold text-gray-800">Coach Mike</h2>
                 <p className="text-xs sm:text-sm text-gray-500">January 15, 2025</p>
