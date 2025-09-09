@@ -85,7 +85,18 @@ export default function BlogPage() {
       
       <div className="w-full py-4 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="neumorphic-card overflow-hidden space-y-12">
+          <div 
+            className="neumorphic-card overflow-hidden space-y-12 relative"
+            style={{
+              backgroundImage: `
+                repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(75, 85, 99, 0.08) 19px, rgba(75, 85, 99, 0.08) 20px, transparent 20px, transparent 39px, rgba(75, 85, 99, 0.08) 39px, rgba(75, 85, 99, 0.08) 40px),
+                repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(75, 85, 99, 0.08) 19px, rgba(75, 85, 99, 0.08) 20px, transparent 20px, transparent 39px, rgba(75, 85, 99, 0.08) 39px, rgba(75, 85, 99, 0.08) 40px),
+                radial-gradient(circle at 20px 20px, rgba(55, 65, 81, 0.12) 2px, transparent 2px),
+                radial-gradient(circle at 40px 40px, rgba(55, 65, 81, 0.12) 2px, transparent 2px)
+              `,
+              backgroundSize: '40px 40px, 40px 40px, 40px 40px, 40px 40px',
+            }}
+          >
             <div className="text-left space-y-6">
               <div className="inline-block px-4 py-2 bg-[#D5FFF8] border border-[#00D8D2] rounded backdrop-blur-sm">
                 <span className="text-[#00827e] font-bold">Blog</span>
@@ -108,11 +119,11 @@ export default function BlogPage() {
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {blogPosts.map((post, index) => (
-                  <div key={index} className="neumorphic-card overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
+                  <div key={index} className="blog-card">
                     {/* Text Content Section */}
-                    <div className="p-6 flex-1">
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="inline-block px-3 py-1 bg-[#D5FFF8] border border-[#00D8D2] rounded text-sm">
+                    <div className="blog-card-content">
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="inline-block px-2 py-1 bg-[#D5FFF8] border border-[#00D8D2] rounded text-sm">
                           <span className="text-[#00827e] font-bold">{post.category}</span>
                         </div>
                         <div className="text-right">
@@ -121,8 +132,8 @@ export default function BlogPage() {
                         </div>
                       </div>
                       
-                      <h2 className="text-xl font-bold text-black mb-3 line-clamp-2">{post.title}</h2>
-                      <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
+                      <h2 className="text-lg font-bold text-black mb-2 line-clamp-2">{post.title}</h2>
+                      <p className="text-gray-600 mb-3 line-clamp-3 text-sm">{post.excerpt}</p>
                       
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-gray-500">By {post.author}</span>
@@ -132,12 +143,11 @@ export default function BlogPage() {
                       </div>
                     </div>
                     
-                    {/* Image Section - Fills entire bottom with card radius */}
-                    <div className="w-full h-48 overflow-hidden rounded-b-2xl">
+                    {/* Image Section - Perfectly integrated with card bottom */}
+                    <div className="blog-card-image">
                       <img 
                         src="/ui/hero.png" 
                         alt={post.title}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   </div>
