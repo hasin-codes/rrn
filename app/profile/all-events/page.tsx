@@ -6,9 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { SearchBar } from '@/components/ui/search-bar';
+import { SortModal } from '@/components/ui/sort-modal';
+import { FiltersModal } from '@/components/ui/filters-modal';
 import { 
-  Search, 
-  Filter, 
   MapPin, 
   Calendar, 
   Users, 
@@ -52,6 +53,15 @@ export default function AllEventsPage() {
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
+  
+  // Modal states
+  const [sortModalOpen, setSortModalOpen] = useState(false);
+  const [filtersModalOpen, setFiltersModalOpen] = useState(false);
+  const [filters, setFilters] = useState({
+    dateRange: { start: '', end: '' },
+    priceRange: { min: 0, max: 1000 },
+    selectedStatuses: [] as string[],
+  });
 
   // Mock events data
   const events: Event[] = [
@@ -306,9 +316,6 @@ export default function AllEventsPage() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <Badge variant="outline" className="bg-blue-50 text-blue-600">
-            {filteredAndSortedEvents.length} Events
-          </Badge>
           <Select value={sortBy} onValueChange={setSortBy}>
             <SelectTrigger className="w-40">
               <SelectValue />
@@ -331,77 +338,63 @@ export default function AllEventsPage() {
         </div>
       </div>
 
-      {/* Advanced Filters */}
+      {/* Modern Search and Filters */}
       <Card className="neumorphic-card">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Filter className="h-5 w-5" />
-            Find Your Perfect Event
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          {/* Search Bar */}
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
+        <CardContent className="p-6">
+          <div className="space-y-4">
+            {/* Modern Search Bar */}
+            <SearchBar
               placeholder="Search events, locations, or organizers..."
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-10"
+              onChange={setSearchTerm}
+              onSortClick={() => setSortModalOpen(true)}
+              onFilterClick={() => setFiltersModalOpen(true)}
+              sortActive={sortBy !== 'date'}
+              filterActive={!!(distanceFilter !== 'all' || locationFilter !== 'all' || statusFilter !== 'all' || typeFilter !== 'all' || filters.dateRange.start || filters.dateRange.end || filters.priceRange.min > 0 || filters.priceRange.max < 1000 || filters.selectedStatuses.length > 0)}
             />
+
+            {/* Quick Filter Pills - Hidden on mobile */}
+            <div className="hidden md:flex flex-wrap gap-2">
+              {['5K', '10K', 'Half Marathon', 'Marathon'].map(distance => (
+                <button
+                  key={distance}
+                  onClick={() => setDistanceFilter(distanceFilter === distance.toLowerCase() ? 'all' : distance.toLowerCase())}
+                  className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                    distanceFilter === distance.toLowerCase()
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                  }`}
+                >
+                  {distance}
+                </button>
+              ))}
+              {['Physical', 'Virtual'].map(type => (
+                <button
+                  key={type}
+                  onClick={() => setTypeFilter(typeFilter === type.toLowerCase() ? 'all' : type.toLowerCase())}
+                  className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                    typeFilter === type.toLowerCase()
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                  }`}
+                >
+                  {type}
+                </button>
+              ))}
+              {['Open', 'Closed', 'Full'].map(status => (
+                <button
+                  key={status}
+                  onClick={() => setStatusFilter(statusFilter === status.toLowerCase() ? 'all' : status.toLowerCase())}
+                  className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                    statusFilter === status.toLowerCase()
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                  }`}
+                >
+                  {status}
+                </button>
+              ))}
           </div>
-
-          {/* Filter Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <Select value={distanceFilter} onValueChange={setDistanceFilter}>
-              <SelectTrigger>
-                <SelectValue placeholder="Distance" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Distances</SelectItem>
-                <SelectItem value="5k">5K</SelectItem>
-                <SelectItem value="10k">10K</SelectItem>
-                <SelectItem value="half">Half Marathon</SelectItem>
-                <SelectItem value="marathon">Marathon</SelectItem>
-                <SelectItem value="ultra">Ultra</SelectItem>
-              </SelectContent>
-            </Select>
-
-            <Select value={locationFilter} onValueChange={setLocationFilter}>
-              <SelectTrigger>
-                <SelectValue placeholder="Location" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Locations</SelectItem>
-                <SelectItem value="new york">New York</SelectItem>
-                <SelectItem value="brooklyn">Brooklyn</SelectItem>
-                <SelectItem value="manhattan">Manhattan</SelectItem>
-                <SelectItem value="virtual">Virtual</SelectItem>
-              </SelectContent>
-            </Select>
-
-            <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger>
-                <SelectValue placeholder="Status" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Status</SelectItem>
-                <SelectItem value="open">Open</SelectItem>
-                <SelectItem value="closed">Closed</SelectItem>
-                <SelectItem value="full">Full</SelectItem>
-              </SelectContent>
-            </Select>
-
-            <Select value={typeFilter} onValueChange={setTypeFilter}>
-              <SelectTrigger>
-                <SelectValue placeholder="Type" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="all">All Types</SelectItem>
-                <SelectItem value="physical">Physical</SelectItem>
-                <SelectItem value="virtual">Virtual</SelectItem>
-              </SelectContent>
-            </Select>
           </div>
         </CardContent>
       </Card>
@@ -529,9 +522,6 @@ export default function AllEventsPage() {
           {/* Pagination */}
           {totalPages > 1 && (
             <div className="flex items-center justify-between mt-6 pt-4 border-t">
-              <div className="text-sm text-muted-foreground">
-                Showing {startIndex + 1} to {Math.min(endIndex, filteredAndSortedEvents.length)} of {filteredAndSortedEvents.length} events
-              </div>
               <div className="flex items-center gap-2">
                 <Button
                   size="sm"
@@ -586,6 +576,45 @@ export default function AllEventsPage() {
           )}
         </CardContent>
       </Card>
+
+      {/* Sort Modal */}
+      <SortModal
+        open={sortModalOpen}
+        onOpenChange={setSortModalOpen}
+        options={[
+          { value: 'date', label: 'Sort by Date' },
+          { value: 'name', label: 'Sort by Name' },
+          { value: 'fee', label: 'Sort by Fee' },
+          { value: 'participants', label: 'Sort by Participants' },
+        ]}
+        selectedValue={sortBy}
+        onValueChange={setSortBy}
+        onApply={() => {}}
+      />
+
+      {/* Filters Modal */}
+      <FiltersModal
+        open={filtersModalOpen}
+        onOpenChange={setFiltersModalOpen}
+        onApply={(newFilters) => setFilters(newFilters)}
+        onReset={() => {
+          setFilters({
+            dateRange: { start: '', end: '' },
+            priceRange: { min: 0, max: 1000 },
+            selectedStatuses: [],
+          });
+          setDistanceFilter('all');
+          setLocationFilter('all');
+          setStatusFilter('all');
+          setTypeFilter('all');
+        }}
+        statusOptions={[
+          { value: 'open', label: 'Open' },
+          { value: 'closed', label: 'Closed' },
+          { value: 'full', label: 'Full' },
+        ]}
+        initialFilters={filters}
+      />
     </div>
   );
 }

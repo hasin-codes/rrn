@@ -6,12 +6,13 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { SearchBar } from '@/components/ui/search-bar';
+import { SortModal } from '@/components/ui/sort-modal';
+import { FiltersModal } from '@/components/ui/filters-modal';
 import { 
   Calendar, 
   MapPin, 
   Download, 
-  Search, 
-  Filter,
   Trophy,
   Clock,
   CheckCircle,
@@ -36,6 +37,16 @@ export default function MyEventsPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [viewMode, setViewMode] = useState<'table' | 'list'>('table');
+  
+  // Modal states
+  const [sortModalOpen, setSortModalOpen] = useState(false);
+  const [filtersModalOpen, setFiltersModalOpen] = useState(false);
+  const [sortBy, setSortBy] = useState('date');
+  const [filters, setFilters] = useState({
+    dateRange: { start: '', end: '' },
+    priceRange: { min: 0, max: 1000 },
+    selectedStatuses: [] as string[],
+  });
 
   // Mock event data
   const events: Event[] = [
@@ -171,41 +182,42 @@ export default function MyEventsPage() {
             Track your running journey and event history
           </p>
         </div>
-        <div className="flex items-center gap-2">
-          <Badge variant="outline" className="bg-blue-50 text-blue-600">
-            {events.length} Total Events
-          </Badge>
-        </div>
       </div>
 
-      {/* Filters and Search */}
+      {/* Modern Search and Filters */}
       <Card className="neumorphic-card">
-        <CardContent className="p-4">
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="flex-1">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  placeholder="Search events by name or location..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
-                />
+        <CardContent className="p-6">
+          <div className="space-y-4">
+            {/* Modern Search Bar */}
+            <SearchBar
+              placeholder="Search events by name or location..."
+              value={searchTerm}
+              onChange={setSearchTerm}
+              onSortClick={() => setSortModalOpen(true)}
+              onFilterClick={() => setFiltersModalOpen(true)}
+              sortActive={sortBy !== 'date'}
+              filterActive={!!(statusFilter !== 'all' || filters.dateRange.start || filters.dateRange.end || filters.selectedStatuses.length > 0)}
+            />
+
+            {/* Quick Filter Pills and View Toggle */}
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              {/* Quick Filter Pills - Hidden on mobile */}
+              <div className="hidden md:flex flex-wrap gap-2">
+                {['Upcoming', 'Registered', 'Completed'].map(status => (
+                  <button
+                    key={status}
+                    onClick={() => setStatusFilter(statusFilter === status.toLowerCase() ? 'all' : status.toLowerCase())}
+                    className={`px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                      statusFilter === status.toLowerCase()
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted text-muted-foreground hover:bg-muted/80'
+                    }`}
+                  >
+                    {status}
+                  </button>
+                ))}
               </div>
-            </div>
-            <div className="flex gap-2">
-              <Select value={statusFilter} onValueChange={setStatusFilter}>
-                <SelectTrigger className="w-40">
-                  <Filter className="h-4 w-4 mr-2" />
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="all">All Status</SelectItem>
-                  <SelectItem value="upcoming">Upcoming</SelectItem>
-                  <SelectItem value="registered">Registered</SelectItem>
-                  <SelectItem value="completed">Completed</SelectItem>
-                </SelectContent>
-              </Select>
+              
               <div className="flex border rounded-md">
                 <Button
                   variant={viewMode === 'table' ? 'default' : 'ghost'}
@@ -224,8 +236,8 @@ export default function MyEventsPage() {
                   List
                 </Button>
               </div>
-      </div>
-    </div>
+            </div>
+          </div>
         </CardContent>
       </Card>
 
@@ -380,6 +392,42 @@ export default function MyEventsPage() {
           </CardContent>
         </Card>
       )}
+
+      {/* Sort Modal */}
+      <SortModal
+        open={sortModalOpen}
+        onOpenChange={setSortModalOpen}
+        options={[
+          { value: 'date', label: 'Sort by Date' },
+          { value: 'name', label: 'Sort by Name' },
+          { value: 'status', label: 'Sort by Status' },
+          { value: 'distance', label: 'Sort by Distance' },
+        ]}
+        selectedValue={sortBy}
+        onValueChange={setSortBy}
+        onApply={() => {}}
+      />
+
+      {/* Filters Modal */}
+      <FiltersModal
+        open={filtersModalOpen}
+        onOpenChange={setFiltersModalOpen}
+        onApply={(newFilters) => setFilters(newFilters)}
+        onReset={() => {
+          setFilters({
+            dateRange: { start: '', end: '' },
+            priceRange: { min: 0, max: 1000 },
+            selectedStatuses: [],
+          });
+          setStatusFilter('all');
+        }}
+        statusOptions={[
+          { value: 'upcoming', label: 'Upcoming' },
+          { value: 'registered', label: 'Registered' },
+          { value: 'completed', label: 'Completed' },
+        ]}
+        initialFilters={filters}
+      />
     </div>
   );
 }
