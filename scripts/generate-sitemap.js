@@ -14,6 +14,22 @@ const path = require('path');
 const SITE_URL = 'https://runrisenation.com'; // Update this with your actual domain
 const OUTPUT_FILE = 'public/sitemap.xml';
 
+// Pages that should be EXCLUDED from sitemap (sensitive/private content)
+const EXCLUDED_PATHS = [
+  '/profile',           // User profile pages - sensitive user data
+  '/profile/my-profile', // User profile details
+  '/profile/my-events',  // User's personal events
+  '/profile/my-stories', // User's personal stories
+  '/profile/all-events', // User's event management
+  '/race/bib',          // Personal race numbers - sensitive
+  '/race/certificates', // Personal certificates - sensitive
+  '/api/',              // API endpoints
+  '/admin/',            // Admin pages
+  '/private/',          // Private content
+  '/temp/',             // Temporary files
+  '/tmp/',              // Temporary files
+];
+
 // Page priorities and change frequencies based on content type
 const PAGE_CONFIG = {
   // Main pages - high priority
@@ -28,13 +44,8 @@ const PAGE_CONFIG = {
   '/engage/stories': { priority: '0.7', changefreq: 'weekly' },
   '/engage/faq': { priority: '0.6', changefreq: 'monthly' },
   
-  // Race pages - medium priority
-  '/race/bib': { priority: '0.6', changefreq: 'monthly' },
-  '/race/certificates': { priority: '0.6', changefreq: 'monthly' },
+  // Race pages - only public race essentials
   '/race/essentials': { priority: '0.6', changefreq: 'monthly' },
-  
-  // Profile page - medium priority
-  '/profile': { priority: '0.7', changefreq: 'weekly' }
 };
 
 /**
@@ -61,7 +72,15 @@ function findPages(dir, basePath = '') {
       } else if (item === 'page.tsx') {
         // Found a page file
         const pagePath = basePath || '/';
-        pages.push(pagePath);
+        
+        // Check if this page should be excluded from sitemap
+        const shouldExclude = EXCLUDED_PATHS.some(excludedPath => 
+          pagePath.startsWith(excludedPath)
+        );
+        
+        if (!shouldExclude) {
+          pages.push(pagePath);
+        }
       }
     }
   } catch (error) {
@@ -116,10 +135,15 @@ function main() {
   const appDir = path.join(process.cwd(), 'app');
   const pages = findPages(appDir);
   
-  console.log(`📄 Found ${pages.length} pages:`);
+  console.log(`📄 Found ${pages.length} public pages:`);
   pages.forEach(page => {
     const config = PAGE_CONFIG[page] || { priority: '0.5', changefreq: 'monthly' };
     console.log(`   ${page} (priority: ${config.priority}, changefreq: ${config.changefreq})`);
+  });
+  
+  console.log(`🚫 Excluded ${EXCLUDED_PATHS.length} sensitive/private paths from sitemap`);
+  EXCLUDED_PATHS.forEach(path => {
+    console.log(`   - ${path}`);
   });
   
   // Generate sitemap content
@@ -144,4 +168,4 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { generateSitemap, findPages, PAGE_CONFIG };
+module.exports = { generateSitemap, findPages, PAGE_CONFIG, EXCLUDED_PATHS };

@@ -1,6 +1,6 @@
 # Robots.txt for RunRise Nation
 # Generated automatically based on site structure
-# Last updated: 2025-09-08T05:07:54.927Z
+# Last updated: 2025-09-09T01:22:36.660Z
 
 User-agent: *
 
@@ -17,14 +17,21 @@ Allow: /race/essentials
 
 # Disallow access to private/user-specific content
 Disallow: /profile
+Disallow: /profile/*
+Disallow: /profile/my-profile
+Disallow: /profile/my-events
+Disallow: /profile/my-stories
+Disallow: /profile/all-events
 Disallow: /race/bib
 Disallow: /race/certificates
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
 Disallow: /private/
+Disallow: /temp/
+Disallow: /tmp/
 
-# Disallow common patterns
+# Disallow common patterns and sensitive content
 Disallow: /*.json$
 Disallow: /*.xml$
 Disallow: /*.txt$
@@ -34,6 +41,9 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /temp/
 Disallow: /tmp/
+Disallow: /profile/
+Disallow: /race/bib
+Disallow: /race/certificates
 
 # Allow specific file types that are useful for SEO
 Allow: /*.css$

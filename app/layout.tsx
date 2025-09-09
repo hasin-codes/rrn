@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import './globals.css'
-import { Navbar } from '@/components/Navbar'
-import { Footer } from '@/components/Footer'
+import { ConditionalLayout } from '@/components/ConditionalLayout'
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
@@ -95,18 +94,9 @@ export default function RootLayout({
       </head>
       <body className={texGyreAdventor.variable}>
         <div className="min-h-screen bg-gradient-to-br from-[#B8BCC8] via-[#C8CCD8] to-[#BCC0CC]">
-          {/* Navigation */}
-          <Navbar />
-          
-          {/* Main Content */}
-          <main className="pt-24 pb-8 transition-all duration-300 ease-in-out" id="main-content">
+          <ConditionalLayout>
             {children}
-          </main>
-          
-          {/* Footer */}
-          <div className="mt-4 sm:mt-6">
-            <Footer />
-          </div>
+          </ConditionalLayout>
         </div>
         <Analytics />
         <SpeedInsights/>

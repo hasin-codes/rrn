@@ -31,7 +31,7 @@ const CONTENT_PATTERNS = {
   keywords: /keywords['":\s]*['"`]([^'"`]+)['"`]/gi,
 };
 
-// Pages to include in GLM training data
+// Pages to include in GLM training data (PUBLIC CONTENT ONLY)
 const INCLUDE_PAGES = [
   'app/page.tsx',
   'app/about/page.tsx',
@@ -44,7 +44,22 @@ const INCLUDE_PAGES = [
   'app/race/essentials/page.tsx',
 ];
 
-// Components to include
+// Pages to EXCLUDE from GLM training data (SENSITIVE/PRIVATE CONTENT)
+const EXCLUDED_PAGES = [
+  'app/profile/',           // All profile pages - sensitive user data
+  'app/profile/page.tsx',   // Profile dashboard
+  'app/profile/my-profile/page.tsx',  // User profile details
+  'app/profile/my-events/page.tsx',   // User's personal events
+  'app/profile/my-stories/page.tsx',  // User's personal stories
+  'app/profile/all-events/page.tsx',  // User's event management
+  'app/race/bib/page.tsx',            // Personal race numbers
+  'app/race/certificates/page.tsx',   // Personal certificates
+  'app/api/',               // API endpoints
+  'app/admin/',             // Admin pages
+  'app/private/',           // Private content
+];
+
+// Components to include (PUBLIC COMPONENTS ONLY)
 const INCLUDE_COMPONENTS = [
   'components/HeroSection.tsx',
   'components/AboutSection.tsx',
@@ -56,10 +71,32 @@ const INCLUDE_COMPONENTS = [
   'components/Footer.tsx',
 ];
 
+// Components to EXCLUDE from GLM training data (SENSITIVE/PRIVATE COMPONENTS)
+const EXCLUDED_COMPONENTS = [
+  'app/profile/components/',  // All profile components - sensitive user data
+  'components/ProfileCard.tsx',
+  'components/QuickStats.tsx',
+  'components/NextEventReminder.tsx',
+  'components/ProfileSidebar.tsx',
+];
+
+/**
+ * Check if a file should be excluded from GLM training data
+ */
+function shouldExcludeFile(filePath) {
+  return EXCLUDED_PAGES.some(excludedPath => filePath.includes(excludedPath)) ||
+         EXCLUDED_COMPONENTS.some(excludedPath => filePath.includes(excludedPath));
+}
+
 /**
  * Extract text content from a file
  */
 function extractTextContent(filePath) {
+  // Skip excluded files
+  if (shouldExcludeFile(filePath)) {
+    return [];
+  }
+  
   try {
     const content = fs.readFileSync(filePath, 'utf8');
     const extractedText = [];
@@ -244,7 +281,7 @@ function processFiles() {
   const allContent = [];
   
   // Process pages
-  console.log('📄 Processing pages...');
+  console.log('📄 Processing public pages...');
   for (const pagePath of INCLUDE_PAGES) {
     const fullPath = path.join(process.cwd(), pagePath);
     if (fs.existsSync(fullPath)) {
@@ -256,8 +293,13 @@ function processFiles() {
     }
   }
   
+  console.log(`🚫 Excluded ${EXCLUDED_PAGES.length} sensitive pages from GLM training data`);
+  EXCLUDED_PAGES.forEach(page => {
+    console.log(`   - ${page}`);
+  });
+  
   // Process components
-  console.log('🧩 Processing components...');
+  console.log('🧩 Processing public components...');
   for (const componentPath of INCLUDE_COMPONENTS) {
     const fullPath = path.join(process.cwd(), componentPath);
     if (fs.existsSync(fullPath)) {
@@ -268,6 +310,11 @@ function processFiles() {
       console.log(`   ✗ ${componentPath} (not found)`);
     }
   }
+  
+  console.log(`🚫 Excluded ${EXCLUDED_COMPONENTS.length} sensitive components from GLM training data`);
+  EXCLUDED_COMPONENTS.forEach(component => {
+    console.log(`   - ${component}`);
+  });
   
   return allContent;
 }
@@ -318,4 +365,4 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { extractTextContent, generateGLMText, processFiles };
+module.exports = { extractTextContent, generateGLMText, processFiles, EXCLUDED_PAGES, EXCLUDED_COMPONENTS };

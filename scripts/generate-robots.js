@@ -14,15 +14,22 @@ const path = require('path');
 const SITE_URL = 'https://runrisenation.com'; // Update this with your actual domain
 const OUTPUT_FILE = 'public/robots.txt';
 
-// Pages that should be disallowed for search engines
+// Pages that should be disallowed for search engines (sensitive/private content)
 const DISALLOWED_PATHS = [
-  '/profile',           // User-specific content
-  '/race/bib',          // Personal race numbers
-  '/race/certificates', // Personal certificates
+  '/profile',           // User profile pages - sensitive user data
+  '/profile/*',         // All profile sub-pages
+  '/profile/my-profile', // User profile details
+  '/profile/my-events',  // User's personal events
+  '/profile/my-stories', // User's personal stories
+  '/profile/all-events', // User's event management
+  '/race/bib',          // Personal race numbers - sensitive
+  '/race/certificates', // Personal certificates - sensitive
   '/api/',              // API endpoints
   '/_next/',            // Next.js internal files
   '/admin/',            // Admin pages (if any)
   '/private/',          // Private content
+  '/temp/',             // Temporary files
+  '/tmp/',              // Temporary files
 ];
 
 // Pages that should be allowed (explicitly)
@@ -71,7 +78,7 @@ User-agent: *
 
   // Add common disallowed patterns
   robotsTxt += `
-# Disallow common patterns
+# Disallow common patterns and sensitive content
 Disallow: /*.json$
 Disallow: /*.xml$
 Disallow: /*.txt$
@@ -81,6 +88,9 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /temp/
 Disallow: /tmp/
+Disallow: /profile/
+Disallow: /race/bib
+Disallow: /race/certificates
 
 # Allow specific file types that are useful for SEO
 Allow: /*.css$

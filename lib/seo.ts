@@ -17,6 +17,26 @@ interface SEOConfig {
   tags?: string[]
 }
 
+// URLs that should be excluded from SEO indexing (sensitive/private content)
+const EXCLUDED_SEO_PATHS = [
+  '/profile',
+  '/profile/',
+  '/profile/my-profile',
+  '/profile/my-events',
+  '/profile/my-stories',
+  '/profile/all-events',
+  '/race/bib',
+  '/race/certificates',
+  '/api/',
+  '/admin/',
+  '/private/',
+];
+
+// Check if a URL should be excluded from SEO
+function shouldExcludeFromSEO(url: string): boolean {
+  return EXCLUDED_SEO_PATHS.some(excludedPath => url.startsWith(excludedPath));
+}
+
 export function generateMetadata(config: SEOConfig): Metadata {
   const {
     title,
@@ -35,6 +55,9 @@ export function generateMetadata(config: SEOConfig): Metadata {
   const fullTitle = title.includes(siteName) ? title : `${title} | ${siteName}`
   const fullUrl = url ? `${baseUrl}${url}` : baseUrl
   const fullImageUrl = image.startsWith('http') ? image : `${baseUrl}${image}`
+
+  // Check if this page should be excluded from SEO
+  const isExcluded = shouldExcludeFromSEO(url);
 
   const metadata: Metadata = {
     title: fullTitle,
@@ -83,7 +106,18 @@ export function generateMetadata(config: SEOConfig): Metadata {
       creator: '@runrisenation',
       site: '@runrisenation',
     },
-    robots: {
+    robots: isExcluded ? {
+      index: false,
+      follow: false,
+      noindex: true,
+      nofollow: true,
+      googleBot: {
+        index: false,
+        follow: false,
+        noindex: true,
+        nofollow: true,
+      },
+    } : {
       index: true,
       follow: true,
       googleBot: {
