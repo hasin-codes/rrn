@@ -25,7 +25,7 @@ export default function FAQPage() {
 
   return (
     <>
-      <div className="w-full py-4 px-4 pt-24">
+      <div className="w-full py-4 px-4 pt-20">
         <div className="max-w-7xl mx-auto">
           <div className="neumorphic-card overflow-hidden space-y-12">
             <div className="text-center space-y-6">

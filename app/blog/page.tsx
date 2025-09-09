@@ -68,7 +68,7 @@ export default function BlogPage() {
 
   return (
     <>
-      <div className="w-full py-4 px-4 pt-24">
+      <div className="w-full py-4 px-4 pt-20">
         <div className="max-w-7xl mx-auto">
           <div 
             className="neumorphic-card overflow-hidden space-y-12 relative"
@@ -101,7 +101,7 @@ export default function BlogPage() {
             </div>
 
             {/* Blog Posts */}
-            <div className="max-w-6xl mx-auto">
+            <div className="w-full">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {blogPosts.map((post, index) => (
                   <div key={index} className="blog-card">

@@ -8,7 +8,7 @@ import { StatsSection } from '@/components/StatsSection'
 export default function Home() {
   return (
     <>
-      <div className="pt-24">
+      <div className="pt-20">
         <HeroSection />
       </div>
       <div className="hidden lg:block">
