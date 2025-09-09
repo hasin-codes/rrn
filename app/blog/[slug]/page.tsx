@@ -168,28 +168,6 @@ The road ahead may seem long, but every step you take brings you closer to your 
               </h1>
             </div>
 
-            {/* Social Media Sharing Container */}
-            <div className="flex justify-center px-4">
-              <div className="flex items-center gap-2 sm:gap-4 bg-white/50 backdrop-blur-sm rounded-lg px-3 sm:px-6 py-2 sm:py-3 border border-gray-200">
-                <button className="flex items-center gap-1 sm:gap-2 text-pink-600 hover:text-pink-700 transition-colors">
-                  <Instagram className="h-4 w-4 sm:h-5 sm:w-5" />
-                  <span className="text-xs sm:text-sm font-medium hidden sm:inline">Share</span>
-                </button>
-                <button className="flex items-center gap-1 sm:gap-2 text-blue-600 hover:text-blue-700 transition-colors">
-                  <Facebook className="h-4 w-4 sm:h-5 sm:w-5" />
-                  <span className="text-xs sm:text-sm font-medium hidden sm:inline">Share</span>
-                </button>
-                <button className="flex items-center gap-1 sm:gap-2 text-blue-400 hover:text-blue-500 transition-colors">
-                  <Twitter className="h-4 w-4 sm:h-5 sm:w-5" />
-                  <span className="text-xs sm:text-sm font-medium hidden sm:inline">Tweet</span>
-                </button>
-                <button className="flex items-center gap-1 sm:gap-2 text-gray-600 hover:text-gray-700 transition-colors">
-                  <Copy className="h-4 w-4 sm:h-5 sm:w-5" />
-                  <span className="text-xs sm:text-sm font-medium hidden sm:inline">Copy Link</span>
-                </button>
-              </div>
-            </div>
-
             {/* Blog Thumbnail Container */}
             <div className="px-4 sm:px-6 md:px-8">
               <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden">
@@ -225,6 +203,28 @@ The road ahead may seem long, but every step you take brings you closer to your 
                       .replace(/(<li.*<\/li>)/gim, '<ul class="list-disc ml-4 sm:ml-6 mb-3 sm:mb-4">$1</ul>')
                   }}
                 />
+              </div>
+            </div>
+
+            {/* Social Media Sharing Container - Moved below blog content */}
+            <div className="flex justify-center px-4">
+              <div className="flex items-center gap-2 sm:gap-4 bg-white/50 backdrop-blur-sm rounded-lg px-3 sm:px-6 py-2 sm:py-3 border border-gray-200">
+                <button className="flex items-center gap-1 sm:gap-2 text-pink-600 hover:text-pink-700 transition-colors">
+                  <Instagram className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="text-xs sm:text-sm font-medium hidden sm:inline">Share</span>
+                </button>
+                <button className="flex items-center gap-1 sm:gap-2 text-blue-600 hover:text-blue-700 transition-colors">
+                  <Facebook className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="text-xs sm:text-sm font-medium hidden sm:inline">Share</span>
+                </button>
+                <button className="flex items-center gap-1 sm:gap-2 text-blue-400 hover:text-blue-500 transition-colors">
+                  <Twitter className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="text-xs sm:text-sm font-medium hidden sm:inline">Tweet</span>
+                </button>
+                <button className="flex items-center gap-1 sm:gap-2 text-gray-600 hover:text-gray-700 transition-colors">
+                  <Copy className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="text-xs sm:text-sm font-medium hidden sm:inline">Copy Link</span>
+                </button>
               </div>
             </div>
 
