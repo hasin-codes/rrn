@@ -249,11 +249,120 @@ types/
 - **Event Categories**: Challenge, Marathon, Fun Run, Trail
 - **Registration CTAs**: Direct call-to-action buttons
 
-### Blog Page
-- **Article Grid**: Mobile single-column, desktop two-column
-- **Rich Content**: Author info, read time, categories
-- **Hover Effects**: Interactive card animations
-- **Content Preview**: Excerpts with "Read More" buttons
+### Blog Section - Complete UI Breakdown
+
+The blog section features a sophisticated two-tier system: a main blog listing page and individual blog detail pages, each with carefully crafted UI components and design patterns.
+
+#### Blog Listing Page (`/blog`)
+
+**Layout Structure:**
+- **Container**: Full-width layout with left-aligned content
+- **Top Padding**: `pt-20` to account for fixed navbar
+- **Background**: Circuit board pattern with subtle grid lines and dots
+- **Card Grid**: Responsive grid system (1 column mobile, 2 columns desktop)
+
+**Blog Card Design:**
+- **Custom CSS Classes**: Specialized `.blog-card`, `.blog-card-content`, `.blog-card-image` classes
+- **Neumorphic Styling**: Soft shadows with dual-layer shadow system
+- **Corner Radius**: Increased to `1rem` for modern appearance
+- **Border**: Reduced to `0.6px solid white` for subtle definition
+- **Background**: Linear teal gradient (`rgba(56, 193, 182, 0.18)` to `rgba(56, 193, 182, 0.06)`)
+- **Image Integration**: Seamless image fitting with matching corner radius
+- **Hover Effects**: Scale transformation and enhanced shadows
+
+**Card Content Structure:**
+```jsx
+<div className="blog-card">
+  <div className="blog-card-content">
+    {/* Category tag, title, excerpt */}
+  </div>
+  <div className="blog-card-image">
+    {/* Optimized image with hover effects */}
+  </div>
+</div>
+```
+
+**Visual Features:**
+- **Category Tags**: Teal background with rounded corners
+- **Typography**: Responsive text scaling (`text-lg` titles, `text-sm` excerpts)
+- **Spacing**: Optimized padding and margins for content density
+- **Navigation**: Direct links to individual blog pages
+
+#### Individual Blog Detail Pages
+
+**Page Structure:**
+- **Back Navigation**: Arrow button with "Back to Blog" link
+- **Category Tab**: Colored tab indicating blog category
+- **Header Section**: Writer name, date, and centered title
+- **Social Sharing**: Instagram, Facebook, Twitter, and copy link buttons
+- **Hero Image**: Large, full-width blog thumbnail
+- **Content Area**: Markdown-formatted blog content
+- **Recommended Section**: Related blog cards for engagement
+
+**Design Elements:**
+
+**Paper Texture Background:**
+- **Base Color**: Warm cream (`#faf9f6`)
+- **Texture Pattern**: Multi-layered background with:
+  - Dotted pattern (radial gradient)
+  - Horizontal grid lines (repeating linear gradient)
+  - Vertical grid lines (repeating linear gradient)
+- **Background Size**: `8px 8px, 32px 32px, 32px 32px`
+- **Applied To**: Main neumorphic card container
+
+**Content Layout:**
+```jsx
+<div className="neumorphic-card" style={{paperTexture}}>
+  {/* Back button */}
+  {/* Category tab */}
+  {/* Writer info and title */}
+  {/* Social media links */}
+  {/* Hero image */}
+  {/* Blog content */}
+  {/* Recommended content */}
+</div>
+```
+
+**Typography Hierarchy:**
+- **Main Title**: `text-4xl lg:text-6xl` with bold weight
+- **Writer Info**: `text-lg` for name, `text-sm` for date
+- **Content**: `prose prose-lg` for optimal readability
+- **Recommended**: `text-2xl` for section headers
+
+**Interactive Elements:**
+- **Social Buttons**: Hover effects with color transitions
+- **Back Button**: Smooth navigation with icon
+- **Recommended Cards**: Hover animations and direct linking
+
+**Responsive Design:**
+- **Mobile**: Single column layout with adjusted spacing
+- **Tablet**: Optimized grid for medium screens
+- **Desktop**: Full-width layout with proper content flow
+
+**Recommended Content Section:**
+- **Layout**: 2-card grid system (left-aligned)
+- **Width**: Full-width cards for better content display
+- **Separation**: Individual cards for visual distinction
+- **Content**: Related blog previews with images and excerpts
+
+**Technical Implementation:**
+- **File Structure**: Individual pages in `/blog/[slug]/page.tsx`
+- **Navigation**: Next.js Link components for client-side routing
+- **Styling**: Tailwind CSS with custom CSS variables
+- **Images**: Optimized with Next.js Image component
+- **Performance**: Static generation for fast loading
+
+**Current Blog Pages:**
+1. **10 Essential Tips for Beginner Runners** (`/blog/10-essential-tips-beginner-runners`)
+2. **The Science of Running Recovery** (`/blog/science-running-recovery`)
+3. **Community Spotlight: Sarah's Marathon Journey** (`/blog/community-spotlight-sarah-marathon`)
+
+**Design Philosophy:**
+- **Authenticity**: Paper texture creates reading-like experience
+- **Accessibility**: High contrast text with readable typography
+- **Engagement**: Social sharing and recommended content
+- **Consistency**: Unified design language across all blog pages
+- **Performance**: Optimized images and static generation
 
 ### About Page
 - **Team Profiles**: Grid layout with responsive columns
