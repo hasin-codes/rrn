@@ -86,7 +86,7 @@ export default function BlogPage() {
       <div className="w-full py-4 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="neumorphic-card overflow-hidden space-y-12">
-            <div className="text-center space-y-6">
+            <div className="text-left space-y-6">
               <div className="inline-block px-4 py-2 bg-[#D5FFF8] border border-[#00D8D2] rounded backdrop-blur-sm">
                 <span className="text-[#00827e] font-bold">Blog</span>
               </div>
@@ -95,35 +95,50 @@ export default function BlogPage() {
                 Running Blog
               </h1>
               
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg text-gray-600 max-w-3xl">
                 Stay updated with the latest running tips, training advice, community stories, 
                 and insights from the RunRise Nation community.
               </p>
+              
+              {/* Horizontal divider line */}
+              <div className="w-full h-px bg-gradient-to-r from-[#00D8D2] to-transparent"></div>
             </div>
 
             {/* Blog Posts */}
             <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {blogPosts.map((post, index) => (
-                  <div key={index} className="neumorphic-card p-6 hover:shadow-lg transition-all duration-300">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="inline-block px-3 py-1 bg-[#D5FFF8] border border-[#00D8D2] rounded text-sm">
-                        <span className="text-[#00827e] font-bold">{post.category}</span>
+                  <div key={index} className="neumorphic-card overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
+                    {/* Text Content Section */}
+                    <div className="p-6 flex-1">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="inline-block px-3 py-1 bg-[#D5FFF8] border border-[#00D8D2] rounded text-sm">
+                          <span className="text-[#00827e] font-bold">{post.category}</span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-sm text-gray-500 block">{post.date}</span>
+                          <span className="text-xs text-gray-400">{post.readTime}</span>
+                        </div>
                       </div>
-                      <div className="text-right">
-                        <span className="text-sm text-gray-500 block">{post.date}</span>
-                        <span className="text-xs text-gray-400">{post.readTime}</span>
+                      
+                      <h2 className="text-xl font-bold text-black mb-3 line-clamp-2">{post.title}</h2>
+                      <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
+                      
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm text-gray-500">By {post.author}</span>
+                        <button className="text-[#00827e] hover:text-[#00D8D2] font-semibold text-sm transition-colors duration-300">
+                          See more
+                        </button>
                       </div>
                     </div>
                     
-                    <h2 className="text-xl font-bold text-black mb-3 line-clamp-2">{post.title}</h2>
-                    <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
-                    
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-gray-500">By {post.author}</span>
-                      <button className="bg-gradient-to-r from-[#00ead3] to-[#00d4c0] hover:from-[#00d4c0] hover:to-[#00ead3] px-4 py-2 rounded-full text-black font-bold text-sm transition-all duration-300 hover:shadow-lg">
-                        Read More
-                      </button>
+                    {/* Image Section - Fills entire bottom with card radius */}
+                    <div className="w-full h-48 overflow-hidden rounded-b-2xl">
+                      <img 
+                        src="/ui/hero.png" 
+                        alt={post.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
                   </div>
                 ))}
