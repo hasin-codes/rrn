@@ -8,7 +8,8 @@ RunRise Nation is a passionate running community platform that showcases the pow
 
 ## ✨ Key Features
 
-- **Complete Page Structure** - Home, Events, About, Blog, Profile, and sub-pages
+- **Complete Page Structure** - Home, Events, About, Blog, Profile, and comprehensive sub-pages
+- **Advanced Profile System** - User dashboard, personal events, stories, and profile management
 - **Neumorphic Design System** - Soft UI with depth and dimension
 - **Centralized Styling** - Single source of truth for all card components
 - **Production-Ready Architecture** - Clean, maintainable, and scalable code
@@ -18,7 +19,8 @@ RunRise Nation is a passionate running community platform that showcases the pow
 - **Performance Optimized** - Next.js 15 with modern React patterns
 - **Type Safety** - Full TypeScript implementation
 - **Component Library** - Reusable UI components with Radix UI
-- **🚀 Advanced SEO System** - Automated sitemap, robots.txt, and content generators
+- **🔒 Privacy-First SEO** - Advanced SEO system with profile page protection
+- **🚀 Automated SEO System** - Smart sitemap, robots.txt, and content generators
 - **📊 SEO Analytics** - Google Analytics 4 integration with performance monitoring
 - **🔍 Structured Data** - JSON-LD schema markup for better search visibility
 - **📱 Social Media SEO** - Open Graph and Twitter Card optimization
@@ -32,7 +34,14 @@ RunRise Nation is a passionate running community platform that showcases the pow
 - **Events (`/events`)** - Upcoming events, registration, and event details
 - **About (`/about`)** - Community story, team, mission, and values
 - **Blog (`/blog`)** - Running tips, stories, and community insights
-- **Profile (`/profile`)** - User dashboard, stats, and account management
+- **Profile (`/profile`)** - User dashboard with sidebar navigation and comprehensive features
+
+### Profile Sub-pages (🔒 Privacy Protected)
+- **Dashboard (`/profile`)** - Main dashboard with profile card, quick stats, and next event reminder
+- **My Profile (`/profile/my-profile`)** - Comprehensive profile management with bento grid layout
+- **My Events (`/profile/my-events`)** - Personal event history with table/list views and filtering
+- **My Stories (`/profile/my-stories`)** - Story editor with markdown support and AI-assisted writing
+- **All Events (`/profile/all-events`)** - Searchable event directory with advanced filtering and pagination
 
 ### Engage Sub-pages
 - **Register (`/engage/register`)** - Member registration and onboarding
@@ -40,7 +49,7 @@ RunRise Nation is a passionate running community platform that showcases the pow
 - **Stories (`/engage/stories`)** - Community story submission
 - **FAQ (`/engage/faq`)** - Frequently asked questions and support
 
-### Race Sub-pages
+### Race Sub-pages (🔒 Privacy Protected)
 - **BIB (`/race/bib`)** - Race number download and management
 - **Certificates (`/race/certificates`)** - Race completion certificates
 - **Essentials (`/race/essentials`)** - Race day checklist and preparation
@@ -106,7 +115,18 @@ app/
 ├── events/page.tsx             # Events page
 ├── about/page.tsx              # About page
 ├── blog/page.tsx               # Blog page
-├── profile/page.tsx            # Profile page
+├── profile/
+│   ├── page.tsx                # Profile dashboard
+│   ├── layout.tsx              # Profile layout with sidebar
+│   ├── my-profile/page.tsx     # Profile management (bento grid)
+│   ├── my-events/page.tsx      # Personal events (table/list view)
+│   ├── my-stories/page.tsx     # Story editor (markdown + AI)
+│   ├── all-events/page.tsx     # Event directory (searchable table)
+│   └── components/
+│       ├── ProfileCard.tsx     # User profile card
+│       ├── QuickStats.tsx      # Running statistics
+│       ├── NextEventReminder.tsx # Upcoming event reminder
+│       └── ProfileSidebar.tsx  # Navigation sidebar
 ├── engage/
 │   ├── register/page.tsx       # Member registration
 │   ├── collab/page.tsx         # Partnership opportunities
@@ -142,13 +162,13 @@ components/
     └── ... (20+ components)
 
 scripts/
-├── generate-sitemap.js         # XML sitemap generator
-├── generate-robots.js          # Robots.txt generator
-├── generate-glm-txt.js         # GLM training data generator
+├── generate-sitemap.js         # XML sitemap generator (privacy-protected)
+├── generate-robots.js          # Robots.txt generator (profile blocking)
+├── generate-glm-txt.js         # GLM training data generator (sensitive content excluded)
 └── README.md                   # SEO generators documentation
 
 lib/
-├── seo.ts                      # SEO utilities and metadata generation
+├── seo.ts                      # SEO utilities with profile page protection
 └── utils.ts                    # General utilities
 
 types/
@@ -241,11 +261,15 @@ types/
 - **Mission & Values**: Comprehensive community information
 - **Call-to-Action**: Join community buttons
 
-### Profile Page
-- **User Dashboard**: Statistics and activity tracking
-- **Responsive Layout**: Mobile stack, desktop side-by-side
-- **Data Visualization**: Running stats and achievements
-- **Activity Feed**: Recent activities and milestones
+### Profile System
+- **Dashboard (`/profile`)**: Main dashboard with profile card, quick stats, and next event reminder
+- **My Profile (`/profile/my-profile`)**: Comprehensive profile management with bento grid layout
+- **My Events (`/profile/my-events`)**: Personal event history with table/list views and filtering
+- **My Stories (`/profile/my-stories`)**: Story editor with markdown support and AI-assisted writing
+- **All Events (`/profile/all-events`)**: Searchable event directory with advanced filtering and pagination
+- **Responsive Layout**: Mobile stack, desktop side-by-side with collapsible sidebar
+- **Data Visualization**: Running stats, achievements, and progress tracking
+- **Privacy Protection**: All profile pages excluded from SEO indexing
 
 ## 🔧 Development
 
@@ -329,21 +353,75 @@ All card components use the centralized design system. To modify card appearance
 - **✅ Core Web Vitals** - Optimized for Google's ranking factors
 
 ### Generated SEO Files
-- **🗺️ Sitemap.xml** - 12 URLs with proper priorities and change frequencies
-- **🤖 Robots.txt** - Smart search engine directives with 7 disallowed paths
-- **🧠 GLM Training Data** - 950 content items for language model training
+- **🗺️ Sitemap.xml** - 9 public URLs with proper priorities and change frequencies (profile pages excluded)
+- **🤖 Robots.txt** - Smart search engine directives with 14 disallowed paths (comprehensive profile protection)
+- **🧠 GLM Training Data** - 950 content items for language model training (sensitive content excluded)
 - **📊 Analytics Integration** - Google Analytics 4 with SEO tracking
 - **🔍 Schema Markup** - Local business, events, and FAQ structured data
+- **🔒 Privacy Protection** - All profile pages and sensitive content excluded from SEO indexing
+
+## 👤 Advanced Profile System
+
+### Comprehensive User Management
+RunRise Nation features a sophisticated profile system that provides users with complete control over their running journey and personal data.
+
+#### Profile Dashboard (`/profile`)
+- **Profile Card**: User information with Strava integration (demo mode)
+- **Quick Stats**: Running statistics, weekly goals, and progress tracking
+- **Next Event Reminder**: Upcoming events with registration status
+- **Responsive Layout**: Mobile-optimized with collapsible sidebar navigation
+
+#### Profile Management (`/profile/my-profile`)
+- **Bento Grid Layout**: Organized, scannable form sections
+- **Comprehensive Forms**: Personal details, social links, professional info
+- **Running Preferences**: Distance preferences, event types, community involvement
+- **Photo Upload**: Profile picture management with preview
+- **Compact Design**: Reduced scrolling with efficient space utilization
+
+#### Event Management (`/profile/my-events`)
+- **Dual View Modes**: Table view for detailed data, list view for quick browsing
+- **Advanced Filtering**: Search by name, location, status, and distance
+- **Event History**: Complete record of registered, completed, and upcoming events
+- **Results Tracking**: Finish times, positions, and achievement badges
+- **Certificate Downloads**: One-click access to race completion certificates
+
+#### Story Creation (`/profile/my-stories`)
+- **Markdown Editor**: Full markdown support with live preview
+- **AI-Assisted Writing**: "Polish my writing" feature for content enhancement
+- **Image Upload**: Featured image support with preview functionality
+- **Story Gallery**: Published and draft stories with engagement metrics
+- **Content Management**: Edit, delete, and share story functionality
+
+#### Event Directory (`/profile/all-events`)
+- **Searchable Table**: Advanced filtering and sorting capabilities
+- **Modern UI/UX**: Responsive design with hover effects and visual feedback
+- **Pagination**: Efficient handling of large event datasets
+- **Event Details**: Comprehensive information including fees, discounts, and availability
+- **Registration Integration**: Direct event joining with status management
+
+### 🔒 Privacy & Security Features
+
+#### SEO Protection
+- **Complete Exclusion**: All profile pages excluded from search engine indexing
+- **Robots.txt Blocking**: Multiple layers of search engine blocking
+- **Metadata Protection**: `noindex, nofollow` directives for sensitive pages
+- **Content Protection**: Personal data never included in AI training data
+
+#### Data Security
+- **User Data Isolation**: Personal information completely separated from public content
+- **Search Engine Blocking**: Comprehensive robots.txt with profile page exclusions
+- **Sitemap Exclusion**: Profile pages never listed in XML sitemap
+- **AI Training Protection**: Sensitive content excluded from language model training
 
 ## 🚀 SEO & Content Generation
 
 ### Automated SEO System
-RunRise Nation includes a comprehensive SEO system that automatically generates and optimizes content for search engines.
+RunRise Nation includes a comprehensive SEO system that automatically generates and optimizes content for search engines while maintaining strict privacy protection for user data.
 
 #### SEO Generators
-- **🗺️ Sitemap Generator** - Automatically creates XML sitemap from your app structure
-- **🤖 Robots.txt Generator** - Smart search engine directives based on content analysis
-- **🧠 GLM Text Generator** - Extracts content for language model training
+- **🗺️ Sitemap Generator** - Automatically creates XML sitemap from your app structure (privacy-protected)
+- **🤖 Robots.txt Generator** - Smart search engine directives with comprehensive profile page blocking
+- **🧠 GLM Text Generator** - Extracts content for language model training (sensitive content excluded)
 
 #### SEO Components
 - **📊 Structured Data** - JSON-LD schema markup for rich search results
@@ -369,9 +447,11 @@ npm run generate:glm        # GLM training data
 - **Automatic Discovery** - Scans app directory for pages
 - **Smart Prioritization** - Assigns appropriate SEO priorities
 - **Content Analysis** - Analyzes site structure for optimal SEO
+- **Privacy Protection** - Automatically excludes profile pages and sensitive content
 - **Performance Monitoring** - Tracks Core Web Vitals
 - **Analytics Integration** - Google Analytics 4 with SEO tracking
 - **Real-time Monitoring** - SEO score monitoring in development
+- **Profile Page Security** - Complete SEO exclusion for user data protection
 
 ### SEO Implementation
 The SEO system is automatically integrated into your build process:
@@ -425,9 +505,11 @@ The project includes optimized `vercel.json` for SEO file serving:
 ✅ **Production Ready** - All deployment issues have been resolved:
 - ✅ **Vercel Configuration Fixed** - Removed invalid functions config
 - ✅ **SEO Generators Working** - Automatic sitemap, robots.txt, and GLM generation
-- ✅ **Build Process Optimized** - All 16 pages generate successfully
+- ✅ **Build Process Optimized** - All 21 pages generate successfully (including profile system)
 - ✅ **TypeScript Compliant** - No compilation errors
 - ✅ **Performance Optimized** - Static generation with Core Web Vitals
+- ✅ **Profile System Complete** - Full user management with privacy protection
+- ✅ **SEO Security Implemented** - Profile pages excluded from search engine indexing
 
 ### Troubleshooting Deployment
 If you encounter deployment issues:
@@ -436,18 +518,24 @@ If you encounter deployment issues:
 3. **Test Locally**: Run `npm run build` to verify everything works
 4. **Check SEO Files**: Verify sitemap.xml and robots.txt are generated
 
-### Recent Fixes
+### Recent Updates
+- **Advanced Profile System**: Complete user management with dashboard, events, stories, and profile editing
+- **Privacy-First SEO**: Comprehensive protection of user data from search engine indexing
+- **Modern UI/UX**: Bento grid layouts, searchable tables, and AI-assisted writing features
+- **SEO Security**: Profile pages completely excluded from sitemap, robots.txt, and AI training data
 - **Fixed Vercel Deployment Error**: Removed invalid `functions` configuration
 - **Simplified Configuration**: Streamlined `vercel.json` to essential headers only
-- **Maintained SEO Functionality**: All SEO features remain fully functional
+- **Maintained SEO Functionality**: All SEO features remain fully functional with enhanced privacy protection
 - **Verified Build Process**: Local testing confirms successful deployment readiness
 
 ### Quick Deployment Checklist
 Before deploying to production:
 - [ ] **Test Build Locally**: `npm run build` completes successfully
 - [ ] **Verify SEO Files**: Check that `public/sitemap.xml` and `public/robots.txt` exist
+- [ ] **Check Profile Protection**: Verify profile pages are excluded from SEO files
 - [ ] **Update Configuration**: Replace placeholder values (analytics IDs, business info)
 - [ ] **Check Domain**: Update `SITE_URL` in generator scripts if needed
+- [ ] **Test Profile System**: Verify all profile pages load correctly
 - [ ] **Deploy**: Push to main branch for automatic Vercel deployment
 
 

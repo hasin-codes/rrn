@@ -468,7 +468,7 @@ export default function AllEventsPage() {
                         {event.featured && (
                           <Star className="h-4 w-4 text-yellow-500 mt-1 flex-shrink-0" />
                         )}
-                        <div>
+      <div>
                           <div className="font-medium text-foreground">{event.name}</div>
                           <div className="text-sm text-muted-foreground mt-1">
                             {event.description}
@@ -556,8 +556,8 @@ export default function AllEventsPage() {
                       {page}
                     </Button>
                   ))}
-                </div>
-                
+      </div>
+
                 <Button
                   size="sm"
                   variant="outline"
@@ -568,8 +568,8 @@ export default function AllEventsPage() {
                   Next
                   <ChevronRight className="h-4 w-4" />
                 </Button>
-              </div>
-            </div>
+      </div>
+    </div>
           )}
 
           {/* Empty State */}
