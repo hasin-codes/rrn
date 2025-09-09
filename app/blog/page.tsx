@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function BlogPage() {
   const blogPosts = [
     {
@@ -122,9 +124,12 @@ export default function BlogPage() {
                       
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-gray-500">By {post.author}</span>
-                        <button className="text-[#00827e] hover:text-[#00D8D2] font-semibold text-sm transition-colors duration-300">
+                        <Link 
+                          href={index === 0 ? "/blog/10-essential-tips-beginner-runners" : "#"}
+                          className="text-[#00827e] hover:text-[#00D8D2] font-semibold text-sm transition-colors duration-300"
+                        >
                           See more
-                        </button>
+                        </Link>
                       </div>
                     </div>
                     
