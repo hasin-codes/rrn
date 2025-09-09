@@ -197,6 +197,7 @@ type TooltipArrowProps = Omit<
   'context'
 > & {
   withTransition?: boolean;
+  ref?: React.Ref<SVGSVGElement>;
 };
 
 function TooltipArrow({
@@ -207,14 +208,27 @@ function TooltipArrow({
   const { side, align, open } = useRenderedTooltip();
   const { context, arrowRef } = useFloatingContext();
   const { transition, globalId } = useGlobalTooltip();
-  React.useImperativeHandle(ref, () => arrowRef.current as SVGSVGElement);
+  
+  // Create a merged ref that handles both the external ref and internal arrowRef
+  const mergedRef = React.useCallback((node: SVGSVGElement | null) => {
+    if (arrowRef) {
+      (arrowRef as React.MutableRefObject<SVGSVGElement | null>).current = node;
+    }
+    if (ref) {
+      if (typeof ref === 'function') {
+        ref(node);
+      } else if (ref && 'current' in ref) {
+        (ref as React.MutableRefObject<SVGSVGElement | null>).current = node;
+      }
+    }
+  }, [arrowRef, ref]);
 
   const resolvedSide = getResolvedSide(context.placement);
   const deg = { top: 0, right: 90, bottom: 180, left: -90 }[resolvedSide];
 
   return (
     <MotionTooltipArrow
-      ref={arrowRef}
+      ref={mergedRef}
       context={context}
       data-state={open ? 'open' : 'closed'}
       data-resolved-side={resolvedSide}
@@ -308,43 +322,88 @@ function TooltipOverlay() {
                   open: rendered.open,
                 }}
               >
-                <Component
-                  data-slot="tooltip-content"
-                  data-resolved-side={getResolvedSide(context.placement)}
-                  data-side={rendered.data.side}
-                  data-align={rendered.data.align}
-                  data-state={rendered.open ? 'open' : 'closed'}
-                  layoutId={`tooltip-content-${globalId}`}
-                  initial={{
-                    opacity: 0,
-                    scale: 0,
-                    ...initialFromSide(rendered.data.side),
-                  }}
-                  animate={
-                    rendered.open
-                      ? { opacity: 1, scale: 1, x: 0, y: 0 }
-                      : {
-                          opacity: 0,
-                          scale: 0,
-                          ...initialFromSide(rendered.data.side),
-                        }
-                  }
-                  exit={{
-                    opacity: 0,
-                    scale: 0,
-                    ...initialFromSide(rendered.data.side),
-                  }}
-                  onAnimationComplete={() => {
-                    if (!rendered.open)
-                      setRendered({ data: null, open: false });
-                  }}
-                  transition={transition}
-                  {...rendered.data.contentProps}
-                  style={{
-                    position: 'relative',
-                    ...(rendered.data.contentProps?.style || {}),
-                  }}
-                />
+                {rendered.data.contentAsChild ? (
+                  <Slot
+                    data-slot="tooltip-content"
+                    data-resolved-side={getResolvedSide(context.placement)}
+                    data-side={rendered.data.side}
+                    data-align={rendered.data.align}
+                    data-state={rendered.open ? 'open' : 'closed'}
+                    layoutId={`tooltip-content-${globalId}`}
+                    initial={{
+                      opacity: 0,
+                      scale: 0,
+                      ...initialFromSide(rendered.data.side),
+                    }}
+                    animate={
+                      rendered.open
+                        ? { opacity: 1, scale: 1, x: 0, y: 0 }
+                        : {
+                            opacity: 0,
+                            scale: 0,
+                            ...initialFromSide(rendered.data.side),
+                          }
+                    }
+                    exit={{
+                      opacity: 0,
+                      scale: 0,
+                      ...initialFromSide(rendered.data.side),
+                    }}
+                    onAnimationComplete={() => {
+                      if (!rendered.open)
+                        setRendered({ data: null, open: false });
+                    }}
+                    transition={transition}
+                    {...(() => {
+                      const { ref, ...rest } = rendered.data.contentProps || {};
+                      return rest;
+                    })()}
+                    style={{
+                      position: 'relative',
+                      ...(rendered.data.contentProps?.style || {}),
+                    }}
+                  >
+                    {rendered.data.contentProps?.children}
+                  </Slot>
+                ) : (
+                  <motion.div
+                    data-slot="tooltip-content"
+                    data-resolved-side={getResolvedSide(context.placement)}
+                    data-side={rendered.data.side}
+                    data-align={rendered.data.align}
+                    data-state={rendered.open ? 'open' : 'closed'}
+                    layoutId={`tooltip-content-${globalId}`}
+                    initial={{
+                      opacity: 0,
+                      scale: 0,
+                      ...initialFromSide(rendered.data.side),
+                    }}
+                    animate={
+                      rendered.open
+                        ? { opacity: 1, scale: 1, x: 0, y: 0 }
+                        : {
+                            opacity: 0,
+                            scale: 0,
+                            ...initialFromSide(rendered.data.side),
+                          }
+                    }
+                    exit={{
+                      opacity: 0,
+                      scale: 0,
+                      ...initialFromSide(rendered.data.side),
+                    }}
+                    onAnimationComplete={() => {
+                      if (!rendered.open)
+                        setRendered({ data: null, open: false });
+                    }}
+                    transition={transition}
+                    {...rendered.data.contentProps}
+                    style={{
+                      position: 'relative',
+                      ...(rendered.data.contentProps?.style || {}),
+                    }}
+                  />
+                )}
               </RenderedTooltipProvider>
             </FloatingProvider>
           </div>
@@ -432,8 +491,7 @@ function TooltipContent({ asChild = false, ...props }: TooltipContentProps) {
 
 type TooltipTriggerProps = WithAsChild<HTMLMotionProps<'div'>>;
 
-function TooltipTrigger({
-  ref,
+const TooltipTrigger = React.forwardRef<HTMLDivElement, TooltipTriggerProps>(({
   onMouseEnter,
   onMouseLeave,
   onFocus,
@@ -441,7 +499,7 @@ function TooltipTrigger({
   onPointerDown,
   asChild = false,
   ...props
-}: TooltipTriggerProps) {
+}, ref) => {
   const {
     props: contentProps,
     asChild: contentAsChild,
@@ -460,9 +518,21 @@ function TooltipTrigger({
   } = useGlobalTooltip();
 
   const triggerRef = React.useRef<HTMLDivElement>(null);
-  React.useImperativeHandle(ref, () => triggerRef.current as HTMLDivElement);
-
   const suppressNextFocusRef = React.useRef(false);
+
+  // Merge external ref with internal ref
+  const mergedRef = React.useCallback((node: HTMLDivElement | null) => {
+    if (triggerRef) {
+      (triggerRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
+    }
+    if (ref) {
+      if (typeof ref === 'function') {
+        ref(node);
+      } else if (ref && 'current' in ref) {
+        (ref as React.MutableRefObject<HTMLDivElement | null>).current = node;
+      }
+    }
+  }, [ref]);
 
   const handleOpen = React.useCallback(() => {
     if (!triggerRef.current) return;
@@ -541,7 +611,7 @@ function TooltipTrigger({
 
   return (
     <Component
-      ref={triggerRef}
+      ref={mergedRef}
       onPointerDown={handlePointerDown}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -554,7 +624,9 @@ function TooltipTrigger({
       {...props}
     />
   );
-}
+});
+
+TooltipTrigger.displayName = 'TooltipTrigger';
 
 export {
   TooltipProvider,

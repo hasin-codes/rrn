@@ -106,18 +106,7 @@ export function generateMetadata(config: SEOConfig): Metadata {
       creator: '@runrisenation',
       site: '@runrisenation',
     },
-    robots: isExcluded ? {
-      index: false,
-      follow: false,
-      noindex: true,
-      nofollow: true,
-      googleBot: {
-        index: false,
-        follow: false,
-        noindex: true,
-        nofollow: true,
-      },
-    } : {
+    robots: isExcluded ? 'noindex, nofollow' : {
       index: true,
       follow: true,
       googleBot: {
