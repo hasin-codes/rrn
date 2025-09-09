@@ -97,69 +97,68 @@ The road ahead may seem long, but every step you take brings you closer to your 
             className="neumorphic-card overflow-hidden space-y-8 relative"
             style={{
               backgroundImage: `
-                repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(75, 85, 99, 0.08) 19px, rgba(75, 85, 99, 0.08) 20px, transparent 20px, transparent 39px, rgba(75, 85, 99, 0.08) 39px, rgba(75, 85, 99, 0.08) 40px),
-                repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(75, 85, 99, 0.08) 19px, rgba(75, 85, 99, 0.08) 20px, transparent 20px, transparent 39px, rgba(75, 85, 99, 0.08) 39px, rgba(75, 85, 99, 0.08) 40px),
-                radial-gradient(circle at 20px 20px, rgba(55, 65, 81, 0.12) 2px, transparent 2px),
-                radial-gradient(circle at 40px 40px, rgba(55, 65, 81, 0.12) 2px, transparent 2px)
+                radial-gradient(circle at 1px 1px, rgba(0,0,0,0.08) 1px, transparent 0),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px)
               `,
-              backgroundSize: '40px 40px, 40px 40px, 40px 40px, 40px 40px',
+              backgroundSize: "8px 8px, 32px 32px, 32px 32px",
             }}
           >
             {/* Back Button */}
-            <div className="flex items-center">
+            <div className="flex items-center px-4">
               <Link 
                 href="/blog" 
                 className="flex items-center gap-2 text-[#00827e] hover:text-[#00D8D2] transition-colors duration-300"
               >
-                <ArrowLeft className="h-4 w-4" />
-                <span className="text-sm font-medium">Back to Blog</span>
+                <ArrowLeft className="h-3 w-3 sm:h-4 sm:w-4" />
+                <span className="text-xs sm:text-sm font-medium">Back to Blog</span>
               </Link>
             </div>
 
             {/* Blog Category Box */}
-            <div className="flex justify-start">
-              <div className="inline-block px-4 py-2 bg-[#D5FFF8] border border-[#00D8D2] rounded backdrop-blur-sm">
-                <span className="text-[#00827e] font-bold">Blog</span>
+            <div className="flex justify-start px-4">
+              <div className="inline-block px-3 sm:px-4 py-1 sm:py-2 bg-[#D5FFF8] border border-[#00D8D2] rounded backdrop-blur-sm">
+                <span className="text-[#00827e] font-bold text-sm sm:text-base">Blog</span>
               </div>
             </div>
 
             {/* Writer Info and Title Container */}
-            <div className="text-center space-y-4">
+            <div className="text-center space-y-4 px-4">
               <div className="space-y-2">
-                <h2 className="text-lg font-semibold text-gray-800">Coach Mike</h2>
-                <p className="text-sm text-gray-500">January 15, 2025</p>
+                <h2 className="text-base sm:text-lg font-semibold text-gray-800">Coach Mike</h2>
+                <p className="text-xs sm:text-sm text-gray-500">January 15, 2025</p>
               </div>
               
-              <h1 className="text-4xl lg:text-6xl font-bold text-black leading-tight max-w-4xl mx-auto">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-black leading-tight max-w-4xl mx-auto px-2">
                 10 Essential Tips for Beginner Runners
               </h1>
             </div>
 
             {/* Social Media Sharing Container */}
-            <div className="flex justify-center">
-              <div className="flex items-center gap-4 bg-white/50 backdrop-blur-sm rounded-lg px-6 py-3 border border-gray-200">
-                <button className="flex items-center gap-2 text-pink-600 hover:text-pink-700 transition-colors">
-                  <Instagram className="h-5 w-5" />
-                  <span className="text-sm font-medium">Share</span>
+            <div className="flex justify-center px-4">
+              <div className="flex items-center gap-2 sm:gap-4 bg-white/50 backdrop-blur-sm rounded-lg px-3 sm:px-6 py-2 sm:py-3 border border-gray-200">
+                <button className="flex items-center gap-1 sm:gap-2 text-pink-600 hover:text-pink-700 transition-colors">
+                  <Instagram className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="text-xs sm:text-sm font-medium hidden sm:inline">Share</span>
                 </button>
-                <button className="flex items-center gap-2 text-blue-600 hover:text-blue-700 transition-colors">
-                  <Facebook className="h-5 w-5" />
-                  <span className="text-sm font-medium">Share</span>
+                <button className="flex items-center gap-1 sm:gap-2 text-blue-600 hover:text-blue-700 transition-colors">
+                  <Facebook className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="text-xs sm:text-sm font-medium hidden sm:inline">Share</span>
                 </button>
-                <button className="flex items-center gap-2 text-blue-400 hover:text-blue-500 transition-colors">
-                  <Twitter className="h-5 w-5" />
-                  <span className="text-sm font-medium">Tweet</span>
+                <button className="flex items-center gap-1 sm:gap-2 text-blue-400 hover:text-blue-500 transition-colors">
+                  <Twitter className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="text-xs sm:text-sm font-medium hidden sm:inline">Tweet</span>
                 </button>
-                <button className="flex items-center gap-2 text-gray-600 hover:text-gray-700 transition-colors">
-                  <Copy className="h-5 w-5" />
-                  <span className="text-sm font-medium">Copy Link</span>
+                <button className="flex items-center gap-1 sm:gap-2 text-gray-600 hover:text-gray-700 transition-colors">
+                  <Copy className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="text-xs sm:text-sm font-medium hidden sm:inline">Copy Link</span>
                 </button>
               </div>
             </div>
 
             {/* Blog Thumbnail Container */}
-            <div className="px-8">
-              <div className="relative w-full h-96 rounded-lg overflow-hidden">
+            <div className="px-4 sm:px-6 md:px-8">
+              <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden">
                 <Image
                   src="/ui/hero.png"
                   alt="10 Essential Tips for Beginner Runners"
@@ -170,35 +169,35 @@ The road ahead may seem long, but every step you take brings you closer to your 
             </div>
 
             {/* Blog Content Container */}
-            <div className="px-16">
-              <div className="prose prose-lg max-w-none">
-                <div className="flex items-center gap-2 mb-6 text-gray-600">
-                  <Clock className="h-4 w-4" />
-                  <span className="text-sm">{readingTime} min read</span>
+            <div className="px-4 sm:px-6 md:px-8 lg:px-16">
+              <div className="prose prose-sm sm:prose-base lg:prose-lg max-w-none">
+                <div className="flex items-center gap-2 mb-4 sm:mb-6 text-gray-600">
+                  <Clock className="h-3 w-3 sm:h-4 sm:w-4" />
+                  <span className="text-xs sm:text-sm">{readingTime} min read</span>
                 </div>
                 
                 <div 
-                  className="text-gray-800 leading-relaxed"
+                  className="text-gray-800 leading-relaxed text-sm sm:text-base"
                   dangerouslySetInnerHTML={{ 
                     __html: blogContent
-                      .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mb-6 text-black">$1</h1>')
-                      .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold mb-4 mt-8 text-black">$1</h2>')
-                      .replace(/^### (.*$)/gim, '<h3 class="text-xl font-semibold mb-3 mt-6 text-black">$1</h3>')
+                      .replace(/^# (.*$)/gim, '<h1 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 sm:mb-6 text-black">$1</h1>')
+                      .replace(/^## (.*$)/gim, '<h2 class="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4 mt-6 sm:mt-8 text-black">$1</h2>')
+                      .replace(/^### (.*$)/gim, '<h3 class="text-base sm:text-lg lg:text-xl font-semibold mb-2 sm:mb-3 mt-4 sm:mt-6 text-black">$1</h3>')
                       .replace(/\*\*(.*?)\*\*/gim, '<strong class="font-semibold">$1</strong>')
                       .replace(/\*(.*?)\*/gim, '<em class="italic">$1</em>')
-                      .replace(/^\- (.*$)/gim, '<li class="ml-4 mb-2">$1</li>')
-                      .replace(/\n\n/gim, '</p><p class="mb-4">')
-                      .replace(/^(?!<[h|l])/gim, '<p class="mb-4">')
-                      .replace(/(<li.*<\/li>)/gim, '<ul class="list-disc ml-6 mb-4">$1</ul>')
+                      .replace(/^\- (.*$)/gim, '<li class="ml-2 sm:ml-4 mb-1 sm:mb-2">$1</li>')
+                      .replace(/\n\n/gim, '</p><p class="mb-3 sm:mb-4">')
+                      .replace(/^(?!<[h|l])/gim, '<p class="mb-3 sm:mb-4">')
+                      .replace(/(<li.*<\/li>)/gim, '<ul class="list-disc ml-4 sm:ml-6 mb-3 sm:mb-4">$1</ul>')
                   }}
                 />
               </div>
             </div>
 
             {/* Recommended Content Section */}
-            <div className="px-16">
-              <h3 className="text-2xl font-bold text-black mb-6">Recommended Content</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="px-4 sm:px-6 md:px-8 lg:px-16">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-black mb-4 sm:mb-6">Recommended Content</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {recommendedPosts.map((post, index) => (
                   <Link key={index} href={`/blog/${post.slug}`} className="blog-card group">
                     <div className="blog-card-content">

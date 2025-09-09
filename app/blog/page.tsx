@@ -106,7 +106,11 @@ export default function BlogPage() {
             <div className="w-full">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {blogPosts.map((post, index) => (
-                  <div key={index} className="blog-card">
+                  <Link 
+                    key={index} 
+                    href={index === 0 ? "/blog/10-essential-tips-beginner-runners" : "#"}
+                    className="blog-card group cursor-pointer"
+                  >
                     {/* Text Content Section */}
                     <div className="blog-card-content">
                       <div className="flex items-start justify-between mb-3">
@@ -119,17 +123,14 @@ export default function BlogPage() {
                         </div>
                       </div>
                       
-                      <h2 className="text-lg font-bold text-black mb-2 line-clamp-2">{post.title}</h2>
+                      <h2 className="text-lg font-bold text-black mb-2 line-clamp-2 group-hover:text-[#00827e] transition-colors">{post.title}</h2>
                       <p className="text-gray-600 mb-3 line-clamp-3 text-sm">{post.excerpt}</p>
                       
                       <div className="flex items-center justify-between">
                         <span className="text-sm text-gray-500">By {post.author}</span>
-                        <Link 
-                          href={index === 0 ? "/blog/10-essential-tips-beginner-runners" : "#"}
-                          className="text-[#00827e] hover:text-[#00D8D2] font-semibold text-sm transition-colors duration-300"
-                        >
+                        <span className="text-[#00827e] hover:text-[#00D8D2] font-semibold text-sm transition-colors duration-300">
                           See more
-                        </Link>
+                        </span>
                       </div>
                     </div>
                     
@@ -140,7 +141,7 @@ export default function BlogPage() {
                         alt={post.title}
                       />
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
