@@ -1,14 +1,5 @@
-import FlowingMenu from '@/components/FlowingMenu'
 
 export default function EventsPage() {
-  const demoItems = [
-    { 
-      link: '#', 
-      text: 'Limited slots left : RunRise Nation 15K', 
-      image: '/ui/MEDAL.png' 
-    },
-  ];
-
   const upcomingEvents = [
     {
       title: "RunRise Nation 15K Challenge",
@@ -50,13 +41,8 @@ export default function EventsPage() {
 
   return (
     <>
-      {/* FlowingMenu at the top of the page - positioned below navbar */}
-      <div className="w-full pt-[120px]" style={{ height: '80px' }}>
-        <FlowingMenu items={demoItems} />
-      </div>
-      
       {/* Events Overview Section */}
-      <div className="w-full py-4 px-4">
+      <div className="w-full py-4 px-4 pt-24">
         <div className="max-w-7xl mx-auto">
           <div className="neumorphic-card overflow-hidden space-y-12">
             <div className="text-center space-y-6">

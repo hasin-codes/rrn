@@ -1,14 +1,4 @@
-import FlowingMenu from '@/components/FlowingMenu'
-
 export default function BlogPage() {
-  const demoItems = [
-    { 
-      link: '#', 
-      text: 'Latest Running Tips & Stories', 
-      image: '/ui/MEDAL.png' 
-    },
-  ];
-
   const blogPosts = [
     {
       title: "10 Essential Tips for Beginner Runners",
@@ -78,12 +68,7 @@ export default function BlogPage() {
 
   return (
     <>
-      {/* FlowingMenu at the top of the page - positioned below navbar */}
-      <div className="w-full pt-[120px]" style={{ height: '80px' }}>
-        <FlowingMenu items={demoItems} />
-      </div>
-      
-      <div className="w-full py-4 px-4">
+      <div className="w-full py-4 px-4 pt-24">
         <div className="max-w-7xl mx-auto">
           <div 
             className="neumorphic-card overflow-hidden space-y-12 relative"
