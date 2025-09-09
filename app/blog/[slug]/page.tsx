@@ -125,7 +125,7 @@ The road ahead may seem long, but every step you take brings you closer to your 
         </button>
       )}
 
-      <div className="w-full py-4 px-4 pt-16 sm:pt-20">
+      <div className="w-full py-4 px-4 pt-4 sm:pt-20">
         <div className="max-w-7xl mx-auto">
           <div 
             className="neumorphic-card overflow-hidden space-y-8 relative"
