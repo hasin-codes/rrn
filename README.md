@@ -9,8 +9,10 @@ RunRise Nation is a passionate running community platform that showcases the pow
 ## ✨ Key Features
 
 - **Complete Page Structure** - Home, Events, About, Blog, Profile, and comprehensive sub-pages
+- **Advanced Search & Filter System** - Real-time search with modal-based filtering for events
+- **Enhanced Event Management** - Colored labels, distance filtering, and month-based organization
+- **Neumorphic Design System** - Soft UI with depth and dimension, including custom search bars
 - **Advanced Profile System** - User dashboard, personal events, stories, and profile management
-- **Neumorphic Design System** - Soft UI with depth and dimension
 - **Centralized Styling** - Single source of truth for all card components
 - **Production-Ready Architecture** - Clean, maintainable, and scalable code
 - **Fully Responsive Design** - Mobile-first approach with desktop optimization
@@ -31,7 +33,7 @@ RunRise Nation is a passionate running community platform that showcases the pow
 
 ### Main Pages
 - **Home (`/`)** - Landing page with hero section and community overview
-- **Events (`/events`)** - Upcoming events, registration, and event details
+- **Events (`/events`)** - Advanced event discovery with search, filtering, and colored event labels
 - **About (`/about`)** - Community story, team, mission, and values
 - **Blog (`/blog`)** - Running tips, stories, and community insights
 - **Profile (`/profile`)** - User dashboard with sidebar navigation and comprehensive features
@@ -244,10 +246,16 @@ types/
 - **Height Consistency**: Perfect card alignment across devices
 
 ### Events Page
-- **Event Cards**: Detailed event information with registration
-- **Responsive Grid**: Mobile single-column, desktop two-column
-- **Event Categories**: Challenge, Marathon, Fun Run, Trail
-- **Registration CTAs**: Direct call-to-action buttons
+- **Advanced Search & Filter System**: Real-time search with modal-based filtering
+- **Event Type Filtering**: Live/Virtual event selection with colored chips
+- **Distance Filtering**: 5K, 7K, 15K, 21K, 42K distance options
+- **Month Filtering**: Event filtering by month with dynamic options
+- **Neumorphic Search Bar**: Soft UI search input with integrated sort/filter buttons
+- **Event Cards**: Enhanced cards with colored labels for event type and distance
+- **Responsive Grid**: Mobile single-column, desktop multi-column layout
+- **Smart Filtering**: Combined search and filter functionality with results counter
+- **Modal-Based Filters**: Clean filter interface accessible via filter icon
+- **Clear All Functionality**: One-click filter reset for better UX
 
 ### Blog Section - Complete UI Breakdown
 
@@ -628,6 +636,10 @@ If you encounter deployment issues:
 4. **Check SEO Files**: Verify sitemap.xml and robots.txt are generated
 
 ### Recent Updates
+- **Enhanced Events Page**: Advanced search and filter system with modal-based filtering
+- **Neumorphic Search Bar**: Custom search component with soft UI styling and integrated controls
+- **Event Label System**: Colored labels for event types (Live/Virtual) and distances (5K-42K)
+- **Smart Filtering**: Real-time search with month, distance, and event type filtering
 - **Advanced Profile System**: Complete user management with dashboard, events, stories, and profile editing
 - **Privacy-First SEO**: Comprehensive protection of user data from search engine indexing
 - **Modern UI/UX**: Bento grid layouts, searchable tables, and AI-assisted writing features
