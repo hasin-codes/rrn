@@ -76,11 +76,11 @@ export function ProjectFiltersModal({
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
     initialFilters?.categories || []
   );
-  const [showCompleted, setShowCompleted] = useState(
-    initialFilters?.showCompleted || true
+  const [showCompleted, setShowCompleted] = useState<boolean>(
+    initialFilters?.showCompleted ?? true
   );
-  const [assignedToMe, setAssignedToMe] = useState(
-    initialFilters?.assignedToMe || false
+  const [assignedToMe, setAssignedToMe] = useState<boolean>(
+    initialFilters?.assignedToMe ?? false
   );
 
   const handleCategoryToggle = (value: string) => {
@@ -230,14 +230,14 @@ export function ProjectFiltersModal({
                 <span className="text-sm text-foreground">Show completed projects</span>
                 <Switch
                   checked={showCompleted}
-                  onCheckedChange={setShowCompleted}
+                  onCheckedChange={(checked) => setShowCompleted(checked)}
                 />
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-foreground">Display projects assigned to me</span>
                 <Switch
                   checked={assignedToMe}
-                  onCheckedChange={setAssignedToMe}
+                  onCheckedChange={(checked) => setAssignedToMe(checked)}
                 />
               </div>
             </div>

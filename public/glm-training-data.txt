@@ -1,6 +1,6 @@
 # GLM Training Data for RunRise Nation
 # Generated from website content for language model training
-# Generated on: 2025-09-09T02:20:00.041Z
+# Generated on: 2025-09-09T21:15:15.139Z
 
 ## Website Overview
 RunRise Nation is a passionate running community platform that showcases the power of modern web development with a focus on user experience, performance, and maintainable code architecture. The application features a unique neumorphic design system that creates depth and visual interest through carefully crafted shadows and lighting effects.
@@ -15,50 +15,50 @@ RunRise Nation is a passionate running community platform that showcases the pow
 4. @/components/PacersSection
 5. @/components/StoriesSection
 6. @/components/StatsSection
-7. @/components/FlowingMenu
-8. , text:
-9. , image:
-10. }, ]; return ( <> {/* FlowingMenu at the top of the page - positioned below navbar */} <div className=
-11. style={{ height:
-12. }}> <FlowingMenu items={demoItems} /> </div> <HeroSection /> <div className=
-13. > <EventsSection /> </div> <div className=
-14. }}> <FlowingMenu items={demoItems} /> </div> <div className=
-15. > <div className=
-16. > <span className=
-17. >About Us</span> </div> <h1 className=
-18. > About RunRise Nation </h1> <p className=
-19. > <h2 className=
-20. >Our Mission</h2> <p className=
-21. text-gray-600 leading-relaxed
-22. ve grown from a small group of passionate runners to a thriving community of over 200+ active members. Our mission extends beyond organizing events – we
-23. neumorphic-card p-8
-24. text-3xl font-bold text-black mb-6
-25. grid grid-cols-1 md:grid-cols-2 gap-6
-26. text-xl font-bold text-black mb-3
-27. text-gray-600
-28. >2020</div> <h3 className=
-29. >Founded</h3> <p className=
-30. >Started with 5 passionate runners meeting weekly in Dhanmondi Lake</p> </div> <div className=
-31. >2022</div> <h3 className=
-32. >First Marathon</h3> <p className=
-33. >Organized our first official marathon with 50 participants</p> </div> <div className=
-34. >2024</div> <h3 className=
-35. >200+ Members</h3> <p className=
-36. >Reached 200+ active members across multiple cities</p> </div> </div> <p className=
-37. > What started as a small group of friends running together has evolved into Bangladesh
-38. >Meet Our Team</h2> <div className=
-39. >MR</span> </div> <h3 className=
-40. >Mohammad Rahman</h3> <p className=
-41. >Founder & Head Coach</p> <p className=
-42. >Marathon runner with 10+ years experience</p> </div> <div className=
-43. >SA</span> </div> <h3 className=
-44. >Sarah Ahmed</h3> <p className=
-45. >Event Coordinator</p> <p className=
-46. >Organized 30+ successful running events</p> </div> <div className=
-47. >KH</span> </div> <h3 className=
-48. >Karim Hassan</h3> <p className=
-49. >Community Manager</p> <p className=
-50. >Building connections and growing our community</p> </div> </div> </div> <div className=
+7. > <HeroSection /> </div> <div className=
+8. > <EventsSection /> </div> <div className=
+9. w-full py-4 px-4 pt-20
+10. max-w-7xl mx-auto
+11. neumorphic-card overflow-hidden space-y-12
+12. text-center space-y-6
+13. inline-block px-4 py-2 bg-[#D5FFF8] border border-[#00D8D2] rounded backdrop-blur-sm
+14. text-[#00827e] font-bold
+15. text-5xl lg:text-7xl font-bold text-black leading-tight
+16. text-lg text-gray-600 max-w-3xl mx-auto
+17. max-w-6xl mx-auto space-y-8
+18. neumorphic-card p-8
+19. text-3xl font-bold text-black mb-6
+20. text-gray-600 leading-relaxed mb-6
+21. s a journey of personal growth, community building, and pushing beyond perceived limits. </p> <p className=
+22. > Since our founding in 2020, we
+23. re building a movement that transforms lives through the power of running. </p> </div> <div className=
+24. > <h2 className=
+25. >Our Values</h2> <div className=
+26. > <div> <h3 className=
+27. >Community First</h3> <p className=
+28. >Inclusive Excellence</h3> <p className=
+29. >Continuous Growth</h3> <p className=
+30. >Passion-Driven</h3> <p className=
+31. >Our Story</h2> <div className=
+32. > <div className=
+33. >2020</div> <h3 className=
+34. >Founded</h3> <p className=
+35. >Started with 5 passionate runners meeting weekly in Dhanmondi Lake</p> </div> <div className=
+36. >2022</div> <h3 className=
+37. >First Marathon</h3> <p className=
+38. >Organized our first official marathon with 50 participants</p> </div> <div className=
+39. >2024</div> <h3 className=
+40. >200+ Members</h3> <p className=
+41. >Reached 200+ active members across multiple cities</p> </div> </div> <p className=
+42. > What started as a small group of friends running together has evolved into Bangladesh
+43. >Meet Our Team</h2> <div className=
+44. > <span className=
+45. >MR</span> </div> <h3 className=
+46. >Mohammad Rahman</h3> <p className=
+47. >Founder & Head Coach</p> <p className=
+48. >Marathon runner with 10+ years experience</p> </div> <div className=
+49. >SA</span> </div> <h3 className=
+50. >Sarah Ahmed</h3> <p className=
 
 ### TITLE CONTENT
 
@@ -82,36 +82,36 @@ RunRise Nation is a passionate running community platform that showcases the pow
 18. Ready to Start?
 19. Join Our Events
 20. {event.title}
-21. Running Blog
-22. {post.title}
-23. Join Our Running Family
-24. Registration Form
-25. Partner with Us
-26. Brand Partnerships
-27. Event Collaborations
-28. Share Your Journey
-29. Share Your Story
-30. Get Answers
-31. {faq.question}
-32. Race Day Essentials
-33. {essential.category}
-34. {text}
-35. Training
-36. Community
-37. Events 2025
-38. View Pacers
-39. A Running Tribe That Pushes Beyond Every Finish Line.
-40. #PerfectPacers
-41. Regular Event Bootcamp
-42. Every step has meaning
-43. {STATS.title}
-44. {STATS.engagementTitle}
-45. {STATS.boundariesTitle}
-46. {sub.title}
-47. Run with your people.
-48. Quick Links
-49. Location
-50. Contact
+21. No events found
+22. Filters
+23. Running Blog
+24. {post.title}
+25. Join Our Running Family
+26. Registration Form
+27. Partner with Us
+28. Brand Partnerships
+29. Event Collaborations
+30. Share Your Journey
+31. Share Your Story
+32. Get Answers
+33. {faq.question}
+34. Race Day Essentials
+35. {essential.category}
+36. {text}
+37. Training
+38. Community
+39. Events 2025
+40. View Pacers
+41. A Running Tribe That Pushes Beyond Every Finish Line.
+42. #PerfectPacers
+43. Regular Event Bootcamp
+44. Every step has meaning
+45. {STATS.title}
+46. {STATS.engagementTitle}
+47. {STATS.boundariesTitle}
+48. {sub.title}
+49. Run with your people.
+50. Quick Links
 
 ### PARAGRAPH CONTENT
 
@@ -131,7 +131,7 @@ RunRise Nation is a passionate running community platform that showcases the pow
 14. Building connections and growing our community
 15. Whether you're a complete beginner or an experienced runner, there's a place for you in our community. Join us and discover what you're capable of achieving.
 16. Discover exciting running events designed for every level. From fun runs to marathons, join our community and challenge yourself in a supportive environment.
-17. {event.description}
+17. Try adjusting your search criteria or filters to find more events.
 18. Stay updated with the latest running tips, training advice, community stories, and insights from the RunRise Nation community.
 19. {post.excerpt}
 20. Become part of RunRise Nation and start your journey to becoming a better runner. Connect with like-minded individuals and achieve your running goals together.
@@ -159,8 +159,8 @@ RunRise Nation is a passionate running community platform that showcases the pow
 ### BUTTON CONTENT
 
 1. Join RunRise Nation
-2. Register Now
-3. Read More
+2. setFiltersModalOpen(false)} className="text-gray-500 hover:text-gray-700">✕
+3. setFiltersModalOpen(false)} className="px-5 py-2 bg-[#00D8D2] text-white rounded-lg hover:bg-[#00C4BE]" > Apply Filters
 4. {BUTTON_TEXT}
 5. Become A Member
 
@@ -199,23 +199,23 @@ RunRise Nation is a passionate running community platform that showcases the pow
 31. Get personalized training plans
 32. Ready to Start?
 33. Upcoming Events
-34. Register as Member
-35. Registration Form
-36. Registration form will be implemented here
-37. Collaboration
-38. Brand Partnerships
-39. Collaborate with us to reach the running community and promote your brand.
-40. Event Collaborations
-41. Partner with us to organize and promote running events and races.
-42. Showcase Your Stories
-43. Share Your Story
-44. Story submission form will be implemented here
-45. Race Day Essentials
-46. Events 2025
-47. View Pacers
-48. it's about pushing past what you thought was possible.
-49. #PerfectPacers
-50. RunRise Nation
+34. No events found
+35. All Months
+36. All Distances
+37. Register as Member
+38. Registration Form
+39. Registration form will be implemented here
+40. Collaboration
+41. Brand Partnerships
+42. Collaborate with us to reach the running community and promote your brand.
+43. Event Collaborations
+44. Partner with us to organize and promote running events and races.
+45. Showcase Your Stories
+46. Share Your Story
+47. Story submission form will be implemented here
+48. Race Day Essentials
+49. Events 2025
+50. View Pacers
 
 ### JSX-TEXT CONTENT
 
@@ -251,31 +251,31 @@ RunRise Nation is a passionate running community platform that showcases the pow
 30. Get personalized training plans
 31. Ready to Start?
 32. Upcoming Events
-33. Register as Member
-34. Registration Form
-35. Registration form will be implemented here
-36. Collaboration
-37. Brand Partnerships
-38. Collaborate with us to reach the running community and promote your brand.
-39. Event Collaborations
-40. Partner with us to organize and promote running events and races.
-41. Showcase Your Stories
-42. Share Your Story
-43. Story submission form will be implemented here
-44. Race Day Essentials
-45. Events 2025
-46. View Pacers
-47. it's about pushing past what you thought was possible.
-48. #PerfectPacers
-49. RunRise Nation
-50. Quick Links
+33. No events found
+34. All Distances
+35. Register as Member
+36. Registration Form
+37. Registration form will be implemented here
+38. Collaboration
+39. Brand Partnerships
+40. Collaborate with us to reach the running community and promote your brand.
+41. Event Collaborations
+42. Partner with us to organize and promote running events and races.
+43. Showcase Your Stories
+44. Share Your Story
+45. Story submission form will be implemented here
+46. Race Day Essentials
+47. Events 2025
+48. View Pacers
+49. it's about pushing past what you thought was possible.
+50. #PerfectPacers
 
 ### DESCRIPTION CONTENT
 
 1. Join us for our signature 15K challenge featuring scenic routes through the heart of the city. Perfect for intermediate runners looking to push their limits.
 2. Our annual spring marathon featuring full marathon, half marathon, and 10K categories. Experience the beauty of spring in Dhaka.
-3. Experience running under the stars with our popular night run series. Glow sticks, music, and an unforgettable atmosphere.
-4. Explore nature with our trail running adventure through scenic forest paths. Perfect for nature lovers and adventure seekers.
+3. Join our expert trainers for an interactive online workshop covering running techniques, injury prevention, and nutrition tips.
+4. Experience running under the stars with our popular night run series. Glow sticks, music, and an unforgettable atmosphere.
 5. Join our running community
 6. Partner with us
 7. Share your journey
@@ -379,6 +379,6 @@ The footer contains important links, contact information, and additional resourc
 
 ## END OF GLM TRAINING DATA
 
-Total content items extracted: 950
+Total content items extracted: 1023
 Content types: 8
-Generated on: 2025-09-09T02:20:00.045Z
+Generated on: 2025-09-09T21:15:15.149Z

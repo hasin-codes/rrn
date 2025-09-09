@@ -5,8 +5,16 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { X, Instagram, Facebook, Twitter, Copy, Clock, ArrowUpRight } from 'lucide-react';
 
-export default function BlogDetailPage({ params }: { params: { slug: string } }) {
+export default function BlogDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [slug, setSlug] = useState<string>('');
+
+  // Resolve params
+  useEffect(() => {
+    params.then((resolvedParams) => {
+      setSlug(resolvedParams.slug);
+    });
+  }, [params]);
 
   // Scroll detection for back to top button
   useEffect(() => {
@@ -81,6 +89,23 @@ The road ahead may seem long, but every step you take brings you closer to your 
 
   const wordCount = blogContent.split(/\s+/).length;
   const readingTime = Math.ceil(wordCount / 200); // 200 words per minute
+
+  // Show loading state while params are being resolved
+  if (!slug) {
+    return (
+      <div className="w-full py-4 px-4 pt-4 sm:pt-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="neumorphic-card p-8 text-center">
+            <div className="animate-pulse">
+              <div className="h-8 bg-gray-200 rounded mb-4"></div>
+              <div className="h-4 bg-gray-200 rounded mb-2"></div>
+              <div className="h-4 bg-gray-200 rounded w-3/4 mx-auto"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   const recommendedPosts = [
     {
