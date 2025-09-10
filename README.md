@@ -246,16 +246,10 @@ types/
 - **Height Consistency**: Perfect card alignment across devices
 
 ### Events Page
-- **Advanced Search & Filter System**: Real-time search with modal-based filtering
-- **Event Type Filtering**: Live/Virtual event selection with colored chips
-- **Distance Filtering**: 5K, 7K, 15K, 21K, 42K distance options
-- **Month Filtering**: Event filtering by month with dynamic options
-- **Neumorphic Search Bar**: Soft UI search input with integrated sort/filter buttons
+- **Unified Patterned Container**: Uses `PatternedContainer` with consistent width and events-specific pattern
+- **Mobile-First Layout**: Concise hero and two-card 2x1 grid centered on the page
 - **Event Cards**: Enhanced cards with colored labels for event type and distance
-- **Responsive Grid**: Mobile single-column, desktop multi-column layout
-- **Smart Filtering**: Combined search and filter functionality with results counter
-- **Modal-Based Filters**: Clean filter interface accessible via filter icon
-- **Clear All Functionality**: One-click filter reset for better UX
+- (Search/filter UI temporarily removed for simplified UX)
 
 ### Blog Section - Complete UI Breakdown
 
@@ -943,6 +937,7 @@ If you encounter deployment issues:
 4. **Check SEO Files**: Verify sitemap.xml and robots.txt are generated
 
 ### Recent Updates
+- **Reusable Patterned Container**: Introduced `components/ui/patterned-container.tsx` for a single source of truth across pages (variants: `events`, `blog`, `about`). Events page now uses it with `max-w-7xl` to match Blog/About widths.
 - **Enhanced Events Page**: Advanced search and filter system with modal-based filtering
 - **Neumorphic Search Bar**: Custom search component with soft UI styling and integrated controls
 - **Event Label System**: Colored labels for event types (Live/Virtual) and distances (5K-42K)
