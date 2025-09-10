@@ -1,5 +1,6 @@
 
 import Image from 'next/image';
+import ProfileGrids from '@/components/ProfileGrids';
 
 export default function AboutPage() {
   return (
@@ -170,15 +171,10 @@ export default function AboutPage() {
               </div>
                   </div>
 
-            {/* Team Section */}
+            {/* Team Section with Grids */}
             <div className="w-full py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 lg:px-16 pb-8 sm:pb-12 md:pb-16">
-              <div className="max-w-6xl mx-auto text-center">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-6 sm:mb-8">
-                  Meet Our Expert Team
-                </h2>
-                <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
-                  A passionate team of experienced runners, pacers, coaches, and community leaders committed to guiding, motivating, and supporting you throughout your running journey.
-                </p>
+              <div className="max-w-7xl mx-auto">
+                <ProfileGrids />
               </div>
             </div>
           </div>
