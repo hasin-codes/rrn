@@ -22,8 +22,8 @@ export default function RaceCard({
   const Card = (
     <div
       className={clsx(
-        "select-none w-full bg-white rounded-2xl border border-white shadow-[inset_-6px_-6px_20px_rgba(255,255,255,0.6),_10px_10px_30px_rgba(174,174,192,0.25)]",
-        "aspect-[2/1] p-2 sm:p-3 min-h-[200px] md:min-h-[240px]",
+        "neumorphic-card select-none w-full",
+        "aspect-[2/1]",
         className
       )}
       style={{ aspectRatio: "2 / 1" }}

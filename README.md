@@ -251,6 +251,22 @@ types/
 - **Event Cards**: Enhanced cards with colored labels for event type and distance
 - (Search/filter UI temporarily removed for simplified UX)
 
+### RaceCard (BIB & Certificates)
+- **Component**: `components/ui/race-card.tsx`
+- **Design**: 2:1 aspect ratio, white outer layer (global `neumorphic-card`), inset cover image, dark bottom gradient, title overlay, and up to 4 top chips (e.g., `15K`, `Live`, `BIB`, `Marathon`).
+- **Default Thumbnail**: `public/ui/Thumb.jpg` (overridable via `thumbnailSrc` prop)
+- **Usage**: Used on `/race/bib` and `/race/certificates` in a vertical stack (no grid) within a `max-w-4xl mx-auto` container for consistency with Events page width.
+- **Interactivity**: Entire card is clickable via `href` prop; selection is disabled app-wide.
+
+```tsx
+<RaceCard
+  title="Spring Marathon 2025"
+  labels={["42K", "Live", "BIB", "Marathon"]}
+  href="#"
+  // thumbnailSrc="/ui/Thumb.jpg" // optional override
+/>
+```
+
 ### Blog Section - Complete UI Breakdown
 
 The blog section features a sophisticated two-tier system: a main blog listing page and individual blog detail pages, each with carefully crafted UI components and design patterns.
@@ -950,6 +966,9 @@ If you encounter deployment issues:
 - **Simplified Configuration**: Streamlined `vercel.json` to essential headers only
 - **Maintained SEO Functionality**: All SEO features remain fully functional with enhanced privacy protection
 - **Verified Build Process**: Local testing confirms successful deployment readiness
+ - Added `RaceCard` component with neumorphic styling and integrated it into `/race/bib` and `/race/certificates` with a stacked layout (no grid).
+ - Enabled Tailwind Aspect Ratio plugin in `tailwind.config.js` to support `aspect-[2/1]` utilities.
+ - Added hydration safeguard: `suppressHydrationWarning` on `<html>` in `app/layout.tsx` to avoid extension-injected attribute mismatches.
 
 ### Quick Deployment Checklist
 Before deploying to production:
