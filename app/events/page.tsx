@@ -105,10 +105,10 @@ export default function EventsPage() {
     <>
       {/* Events Overview Section */}
       <div className="w-full py-6 px-4 pt-16">
-        <PatternedContainer className="space-y-8" maxWidthClassName="max-w-7xl" variant="events">
+        <PatternedContainer className="space-y-8 px-4 sm:px-6 md:px-8 lg:px-16 py-6 sm:py-8" maxWidthClassName="max-w-7xl" variant="events">
           <div className="text-center space-y-4">
             <div className="inline-block px-4 py-2 bg-[#D5FFF8] border border-[#00D8D2] rounded backdrop-blur-sm">
-              <span className="text-[#00827e] font-bold">All Events</span>
+              <span className="text-[#00827e] font-bold">Upcoming Events</span>
             </div>
             
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black leading-tight">
