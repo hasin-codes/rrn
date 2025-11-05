@@ -1,6 +1,6 @@
 # GLM Training Data for RunRise Nation
 # Generated from website content for language model training
-# Generated on: 2025-09-09T21:15:15.139Z
+# Generated on: 2025-11-05T05:06:28.765Z
 
 ## Website Overview
 RunRise Nation is a passionate running community platform that showcases the power of modern web development with a focus on user experience, performance, and maintainable code architecture. The application features a unique neumorphic design system that creates depth and visual interest through carefully crafted shadows and lighting effects.
@@ -17,258 +17,183 @@ RunRise Nation is a passionate running community platform that showcases the pow
 6. @/components/StatsSection
 7. > <HeroSection /> </div> <div className=
 8. > <EventsSection /> </div> <div className=
-9. w-full py-4 px-4 pt-20
-10. max-w-7xl mx-auto
-11. neumorphic-card overflow-hidden space-y-12
-12. text-center space-y-6
-13. inline-block px-4 py-2 bg-[#D5FFF8] border border-[#00D8D2] rounded backdrop-blur-sm
-14. text-[#00827e] font-bold
-15. text-5xl lg:text-7xl font-bold text-black leading-tight
-16. text-lg text-gray-600 max-w-3xl mx-auto
-17. max-w-6xl mx-auto space-y-8
-18. neumorphic-card p-8
-19. text-3xl font-bold text-black mb-6
-20. text-gray-600 leading-relaxed mb-6
-21. s a journey of personal growth, community building, and pushing beyond perceived limits. </p> <p className=
-22. > Since our founding in 2020, we
-23. re building a movement that transforms lives through the power of running. </p> </div> <div className=
-24. > <h2 className=
-25. >Our Values</h2> <div className=
-26. > <div> <h3 className=
-27. >Community First</h3> <p className=
-28. >Inclusive Excellence</h3> <p className=
-29. >Continuous Growth</h3> <p className=
-30. >Passion-Driven</h3> <p className=
-31. >Our Story</h2> <div className=
-32. > <div className=
-33. >2020</div> <h3 className=
-34. >Founded</h3> <p className=
-35. >Started with 5 passionate runners meeting weekly in Dhanmondi Lake</p> </div> <div className=
-36. >2022</div> <h3 className=
-37. >First Marathon</h3> <p className=
-38. >Organized our first official marathon with 50 participants</p> </div> <div className=
-39. >2024</div> <h3 className=
-40. >200+ Members</h3> <p className=
-41. >Reached 200+ active members across multiple cities</p> </div> </div> <p className=
-42. > What started as a small group of friends running together has evolved into Bangladesh
-43. >Meet Our Team</h2> <div className=
-44. > <span className=
-45. >MR</span> </div> <h3 className=
-46. >Mohammad Rahman</h3> <p className=
-47. >Founder & Head Coach</p> <p className=
-48. >Marathon runner with 10+ years experience</p> </div> <div className=
-49. >SA</span> </div> <h3 className=
-50. >Sarah Ahmed</h3> <p className=
+9. next/image
+10. @/components/ProfileGrids
+11. w-full py-4 px-3 pt-16 sm:pt-20
+12. max-w-7xl mx-auto
+13. neumorphic-card overflow-hidden space-y-6 sm:space-y-8 relative
+14. 8px 8px, 32px 32px, 32px 32px
+15. flex justify-start px-3 pt-4 sm:px-4 sm:pt-6
+16. inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[#D5FFF8] border border-[#00D8D2] rounded backdrop-blur-sm
+17. text-[#00827e] font-bold text-sm sm:text-base
+18. w-full px-3 sm:px-6 md:px-8 lg:px-16
+19. relative w-full
+20. relative w-full aspect-[4/3] sm:aspect-[16/10] md:aspect-[16/9] lg:aspect-[16/8] xl:aspect-[16/7] mb-4 sm:mb-0
+21. /ui/hero.png
+22. RunRise Nation - Running Community
+23. object-cover rounded-lg
+24. hidden sm:flex absolute inset-0 items-end justify-start p-3 md:p-6 lg:p-8
+25. bg-white/20 backdrop-blur-md border border-white/30 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 shadow-xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg
+26. text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white leading-tight mb-2 md:mb-3 drop-shadow-lg
+27. text-xs sm:text-sm md:text-base text-white/90 leading-relaxed mb-2 sm:mb-3 md:mb-4 drop-shadow-md
+28. flex flex-col sm:flex-row gap-2 sm:gap-3
+29. bg-white/20 backdrop-blur-sm border border-white/40 text-white hover:bg-white/30 px-3 py-1.5 sm:px-4 sm:py-2 rounded font-bold transition-all duration-300 hover:shadow-lg text-xs sm:text-sm
+30. border-2 border-white/60 text-white hover:bg-white/20 px-3 py-1.5 sm:px-4 sm:py-2 rounded font-bold transition-all duration-300 text-xs sm:text-sm
+31. sm:hidden bg-teal-800 rounded-lg p-4 shadow-xl -mt-2
+32. text-lg font-bold text-white leading-tight mb-2
+33. text-sm text-white/90 leading-relaxed mb-3
+34. flex gap-2
+35. bg-white/20 backdrop-blur-sm border border-white/40 text-white hover:bg-white/30 px-3 py-2 rounded font-bold transition-all duration-300 hover:shadow-lg text-sm flex-1
+36. border-2 border-white/60 text-white hover:bg-white/20 px-3 py-2 rounded font-bold transition-all duration-300 text-sm flex-1
+37. w-full py-6 sm:py-8 md:py-12 lg:py-16 px-3 sm:px-6 md:px-8 lg:px-16
+38. max-w-6xl mx-auto text-center
+39. inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-[#D5FFF8] border border-[#00D8D2] rounded backdrop-blur-sm mb-4 sm:mb-6 md:mb-8
+40. text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-black leading-tight max-w-5xl mx-auto
+41. > <div className=
+42. > {/* Section Title */} <h2 className=
+43. > Our Core Values </h2> {/* Values Components */} <div className=
+44. > {/* Value 1: Integrity */} <div className=
+45. ></div> <span className=
+46. >Honesty First</span> </div> <h3 className=
+47. >Integrity</h3> </div> <p className=
+48. > <Image src=
+49. fill className=
+50. /> </div> </div> </div> {/* Value 2: Community */} <div className=
 
 ### TITLE CONTENT
 
-1. About RunRise Nation
-2. Our Mission
-3. Our Values
-4. Community First
-5. Inclusive Excellence
-6. Continuous Growth
-7. Passion-Driven
-8. Our Story
-9. Founded
-10. First Marathon
-11. 200+ Members
-12. Meet Our Team
-13. Mohammad Rahman
-14. Sarah Ahmed
-15. Karim Hassan
-16. Join Our Community
-17. Why Join RunRise Nation?
-18. Ready to Start?
-19. Join Our Events
-20. {event.title}
-21. No events found
-22. Filters
-23. Running Blog
-24. {post.title}
-25. Join Our Running Family
-26. Registration Form
-27. Partner with Us
-28. Brand Partnerships
-29. Event Collaborations
-30. Share Your Journey
-31. Share Your Story
-32. Get Answers
-33. {faq.question}
-34. Race Day Essentials
-35. {essential.category}
-36. {text}
-37. Training
-38. Community
-39. Events 2025
-40. View Pacers
-41. A Running Tribe That Pushes Beyond Every Finish Line.
-42. #PerfectPacers
-43. Regular Event Bootcamp
-44. Every step has meaning
-45. {STATS.title}
-46. {STATS.engagementTitle}
-47. {STATS.boundariesTitle}
-48. {sub.title}
-49. Run with your people.
-50. Quick Links
+1. Fueling passion, one stride at a time.
+2. Our Core Values
+3. Integrity
+4. Community
+5. Innovation
+6. Join Our Events
+7. {event.title}
+8. Running Blog
+9. {post.title}
+10. Join Our Running Family
+11. Registration Form
+12. Partner with Us
+13. Brand Partnerships
+14. Event Collaborations
+15. Share Your Journey
+16. Share Your Story
+17. Get Answers
+18. {faq.question}
+19. Race Day Essentials
+20. {essential.category}
+21. {text}
+22. Training
+23. Events 2025
+24. View Pacers
+25. A Running Tribe That Pushes Beyond Every Finish Line.
+26. #PerfectPacers
+27. Regular Event Bootcamp
+28. Every step has meaning
+29. {STATS.title}
+30. {STATS.engagementTitle}
+31. {STATS.boundariesTitle}
+32. {sub.title}
+33. Run with your people.
+34. Quick Links
+35. Location
+36. Contact
 
 ### PARAGRAPH CONTENT
 
-1. We are a passionate running community dedicated to fostering a culture of fitness, endurance, and camaraderie. Join us in our mission to help every runner reach their potential.
-2. We prioritize building strong, supportive relationships within our running community. Every member matters, and every achievement is celebrated.
-3. We celebrate achievements at every level and welcome runners of all backgrounds, ages, and abilities. Excellence comes in many forms.
-4. We encourage personal development and pushing beyond comfort zones. Growth happens when we challenge ourselves and support each other.
-5. Our love for running drives everything we do and every event we organize. Passion is contagious and inspires others to join our journey.
-6. Started with 5 passionate runners meeting weekly in Dhanmondi Lake
-7. Organized our first official marathon with 50 participants
-8. Reached 200+ active members across multiple cities
-9. Founder & Head Coach
-10. Marathon runner with 10+ years experience
-11. Event Coordinator
-12. Organized 30+ successful running events
-13. Community Manager
-14. Building connections and growing our community
-15. Whether you're a complete beginner or an experienced runner, there's a place for you in our community. Join us and discover what you're capable of achieving.
-16. Discover exciting running events designed for every level. From fun runs to marathons, join our community and challenge yourself in a supportive environment.
-17. Try adjusting your search criteria or filters to find more events.
-18. Stay updated with the latest running tips, training advice, community stories, and insights from the RunRise Nation community.
-19. {post.excerpt}
-20. Become part of RunRise Nation and start your journey to becoming a better runner. Connect with like-minded individuals and achieve your running goals together.
-21. Registration form will be implemented here
-22. Join hands with RunRise Nation to create amazing running experiences. We're always looking for partners who share our passion for running and community building.
-23. Collaborate with us to reach the running community and promote your brand.
-24. Partner with us to organize and promote running events and races.
-25. Every runner has a unique story to tell. Share your running journey, achievements, and experiences with the RunRise Nation community.
-26. Story submission form will be implemented here
-27. Find answers to the most commonly asked questions about RunRise Nation, our events, and how to get started with your running journey.
-28. {faq.answer}
-29. Everything you need to know and bring for a successful race day. Be prepared and make the most of your running experience.
-30. Active Community Members & Counting
-31. Connect with elite pacers and shape your stride, speed, and stamina with purpose. We've crafted the ultimate track for growth.
-32. Pace yourself alongside passionate runners and certified trainers in dynamic solo or group runs.
-33. {STATS.boundariesText}
-34. {item.label}
-35. {item.description}
-36. Join group runs, local meetups, and a coaching community that cares.
-37. House No. 1, Road No. 6, Section - 12, Block E, Extended Rupnagar R/A, Pallabi, Mirpur, Dhaka-1216.
-38. info.runrisenation@gmail.com
-39. +8801819903343
-40. © 2025, RunRise Nation
+1. Your journey to stronger runs and lasting friendships starts here — with accessible training, inspiring challenges, and a supportive community built for runners of every level.
+2. Our unwavering commitment to honesty and strong moral principles guides every action we take, ensuring transparency, trust, and ethical behavior in all our interactions and decisions.
+3. We strive to continuously enhance our offerings by embracing new ideas and cutting-edge technologies, driving progress and improvement to better serve our community's evolving needs and expectations.
+4. Discover exciting running events for every level in our community.
+5. Stay updated with the latest running tips, training advice, community stories, and insights from the RunRise Nation community.
+6. {post.excerpt}
+7. Become part of RunRise Nation and start your journey to becoming a better runner. Connect with like-minded individuals and achieve your running goals together.
+8. Registration form will be implemented here
+9. Join hands with RunRise Nation to create amazing running experiences. We're always looking for partners who share our passion for running and community building.
+10. Collaborate with us to reach the running community and promote your brand.
+11. Partner with us to organize and promote running events and races.
+12. Every runner has a unique story to tell. Share your running journey, achievements, and experiences with the RunRise Nation community.
+13. Story submission form will be implemented here
+14. Find answers to the most commonly asked questions about RunRise Nation, our events, and how to get started with your running journey.
+15. {faq.answer}
+16. Everything you need to know and bring for a successful race day. Be prepared and make the most of your running experience.
+17. Active Community Members & Counting
+18. Connect with elite pacers and shape your stride, speed, and stamina with purpose. We've crafted the ultimate track for growth.
+19. Pace yourself alongside passionate runners and certified trainers in dynamic solo or group runs.
+20. {STATS.boundariesText}
+21. {item.label}
+22. {item.description}
+23. Join group runs, local meetups, and a coaching community that cares.
+24. House No. 1, Road No. 6, Section - 12, Block E, Extended Rupnagar R/A, Pallabi, Mirpur, Dhaka-1216.
+25. info.runrisenation@gmail.com
+26. +8801819903343
+27. © 2025, RunRise Nation
 
 ### BUTTON CONTENT
 
-1. Join RunRise Nation
-2. setFiltersModalOpen(false)} className="text-gray-500 hover:text-gray-700">✕
-3. setFiltersModalOpen(false)} className="px-5 py-2 bg-[#00D8D2] text-white rounded-lg hover:bg-[#00C4BE]" > Apply Filters
+1. Join our community
+2. Learn more
+3. Join community
 4. {BUTTON_TEXT}
 5. Become A Member
 
 ### JSXTEXT CONTENT
 
-1. Our Mission
-2. Our Values
-3. Community First
-4. We prioritize building strong, supportive relationships within our running community. Every member matters, and every achievement is celebrated.
-5. Inclusive Excellence
-6. We celebrate achievements at every level and welcome runners of all backgrounds, ages, and abilities. Excellence comes in many forms.
-7. Continuous Growth
-8. We encourage personal development and pushing beyond comfort zones. Growth happens when we challenge ourselves and support each other.
-9. Passion-Driven
-10. Our love for running drives everything we do and every event we organize. Passion is contagious and inspires others to join our journey.
-11. Started with 5 passionate runners meeting weekly in Dhanmondi Lake
-12. First Marathon
-13. Organized our first official marathon with 50 participants
-14. 200+ Members
-15. Reached 200+ active members across multiple cities
-16. Meet Our Team
-17. Mohammad Rahman
-18. Founder & Head Coach
-19. Marathon runner with 10+ years experience
-20. Sarah Ahmed
-21. Event Coordinator
-22. Organized 30+ successful running events
-23. Karim Hassan
-24. Community Manager
-25. Building connections and growing our community
-26. Join Our Community
-27. Why Join RunRise Nation?
-28. Access to expert coaching and training programs
-29. Participate in exclusive events and races
-30. Connect with like-minded runners
-31. Get personalized training plans
-32. Ready to Start?
-33. Upcoming Events
-34. No events found
-35. All Months
-36. All Distances
-37. Register as Member
-38. Registration Form
-39. Registration form will be implemented here
-40. Collaboration
-41. Brand Partnerships
-42. Collaborate with us to reach the running community and promote your brand.
-43. Event Collaborations
-44. Partner with us to organize and promote running events and races.
-45. Showcase Your Stories
-46. Share Your Story
-47. Story submission form will be implemented here
-48. Race Day Essentials
-49. Events 2025
-50. View Pacers
+1. Honesty First
+2. Inclusive Support
+3. Continuous Improvement
+4. Innovation
+5. Upcoming Events
+6. Register as Member
+7. Registration Form
+8. Registration form will be implemented here
+9. Collaboration
+10. Brand Partnerships
+11. Collaborate with us to reach the running community and promote your brand.
+12. Event Collaborations
+13. Partner with us to organize and promote running events and races.
+14. Showcase Your Stories
+15. Share Your Story
+16. Story submission form will be implemented here
+17. Race Day Essentials
+18. Events 2025
+19. View Pacers
+20. it's about pushing past what you thought was possible.
+21. #PerfectPacers
+22. RunRise Nation
+23. Quick Links
+24. info.runrisenation@gmail.com
+25. +8801819903343
+26. © 2025, RunRise Nation
+27. Created By
 
 ### JSX-TEXT CONTENT
 
-1. Our Mission
-2. Community First
-3. We prioritize building strong, supportive relationships within our running community. Every member matters, and every achievement is celebrated.
-4. Inclusive Excellence
-5. We celebrate achievements at every level and welcome runners of all backgrounds, ages, and abilities. Excellence comes in many forms.
-6. Continuous Growth
-7. We encourage personal development and pushing beyond comfort zones. Growth happens when we challenge ourselves and support each other.
-8. Passion-Driven
-9. Our love for running drives everything we do and every event we organize. Passion is contagious and inspires others to join our journey.
-10. Started with 5 passionate runners meeting weekly in Dhanmondi Lake
-11. First Marathon
-12. Organized our first official marathon with 50 participants
-13. 200+ Members
-14. Reached 200+ active members across multiple cities
-15. Meet Our Team
-16. Mohammad Rahman
-17. Founder & Head Coach
-18. Marathon runner with 10+ years experience
-19. Sarah Ahmed
-20. Event Coordinator
-21. Organized 30+ successful running events
-22. Karim Hassan
-23. Community Manager
-24. Building connections and growing our community
-25. Join Our Community
-26. Why Join RunRise Nation?
-27. Access to expert coaching and training programs
-28. Participate in exclusive events and races
-29. Connect with like-minded runners
-30. Get personalized training plans
-31. Ready to Start?
-32. Upcoming Events
-33. No events found
-34. All Distances
-35. Register as Member
-36. Registration Form
-37. Registration form will be implemented here
-38. Collaboration
-39. Brand Partnerships
-40. Collaborate with us to reach the running community and promote your brand.
-41. Event Collaborations
-42. Partner with us to organize and promote running events and races.
-43. Showcase Your Stories
-44. Share Your Story
-45. Story submission form will be implemented here
-46. Race Day Essentials
-47. Events 2025
-48. View Pacers
-49. it's about pushing past what you thought was possible.
-50. #PerfectPacers
+1. Honesty First
+2. Inclusive Support
+3. Continuous Improvement
+4. Upcoming Events
+5. Register as Member
+6. Registration Form
+7. Registration form will be implemented here
+8. Collaboration
+9. Brand Partnerships
+10. Collaborate with us to reach the running community and promote your brand.
+11. Event Collaborations
+12. Partner with us to organize and promote running events and races.
+13. Showcase Your Stories
+14. Share Your Story
+15. Story submission form will be implemented here
+16. Race Day Essentials
+17. Events 2025
+18. View Pacers
+19. it's about pushing past what you thought was possible.
+20. #PerfectPacers
+21. RunRise Nation
+22. Quick Links
+23. info.runrisenation@gmail.com
+24. +8801819903343
+25. © 2025, RunRise Nation
 
 ### DESCRIPTION CONTENT
 
@@ -379,6 +304,6 @@ The footer contains important links, contact information, and additional resourc
 
 ## END OF GLM TRAINING DATA
 
-Total content items extracted: 1023
+Total content items extracted: 858
 Content types: 8
-Generated on: 2025-09-09T21:15:15.149Z
+Generated on: 2025-11-05T05:06:28.772Z

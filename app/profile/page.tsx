@@ -5,21 +5,20 @@ import { QuickStats } from './components/QuickStats';
 import { NextEventReminder } from './components/NextEventReminder';
 
 export default function ProfileDashboard() {
-  // Mock data - in a real app, this would come from your data source
   const userProfile = {
     name: 'John Doe',
     email: 'john.doe@example.com',
     membershipNumber: 'RRN-2024-001',
     avatarUrl: 'https://github.com/shadcn.png',
-    stravaConnected: false, // Demo: Strava integration will be added later
+    stravaConnected: false,
   };
 
   const userStats = {
     totalEvents: 8,
-    totalDistance: 312, // Demo: This will sync from Strava when integrated
+    totalDistance: 312,
     storiesShared: 3,
-    weeklyGoal: 50, // Demo: Weekly goal tracking will be enhanced with Strava data
-    weeklyProgress: 28, // Demo: Progress will be calculated from Strava activities
+    weeklyGoal: 50,
+    weeklyProgress: 28,
   };
 
   const nextEvent = {
@@ -36,25 +35,20 @@ export default function ProfileDashboard() {
   };
 
   const handleConnectStrava = () => {
-    // TODO: Implement Strava OAuth integration
-    // This will redirect to Strava authorization and handle the callback
     console.log('Strava integration will be implemented later...');
     alert('Strava integration coming soon! This feature will allow automatic sync of your running data.');
   };
 
   const handleViewEventDetails = (eventId: string) => {
-    // Handle viewing event details
     console.log('Viewing event details for:', eventId);
   };
 
   const handleRegisterForEvent = (eventId: string) => {
-    // Handle event registration
     console.log('Registering for event:', eventId);
   };
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div>
         <h1 className="text-3xl font-bold text-foreground">Dashboard Overview</h1>
         <p className="text-muted-foreground mt-2">
@@ -62,10 +56,8 @@ export default function ProfileDashboard() {
         </p>
       </div>
 
-      {/* Dashboard Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Profile Card - Full width on mobile, 1 column on desktop */}
-        <div className="lg:col-span-1 h-fit">
+        <div className="lg:col-span-1">
           <ProfileCard
             name={userProfile.name}
             email={userProfile.email}
@@ -76,8 +68,7 @@ export default function ProfileDashboard() {
           />
         </div>
 
-        {/* Next Event Reminder - Full width on mobile, 1 column on desktop */}
-        <div className="lg:col-span-1 h-fit">
+        <div className="lg:col-span-1">
           <NextEventReminder
             event={nextEvent}
             onViewDetails={handleViewEventDetails}
@@ -85,8 +76,7 @@ export default function ProfileDashboard() {
           />
         </div>
 
-        {/* Quick Stats - Full width on mobile, 1 column on desktop */}
-        <div className="lg:col-span-1 h-fit">
+        <div className="lg:col-span-1">
           <QuickStats
             totalEvents={userStats.totalEvents}
             totalDistance={userStats.totalDistance}
@@ -97,10 +87,8 @@ export default function ProfileDashboard() {
         </div>
       </div>
 
-      {/* Additional Stats Row - Full width */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Recent Activity */}
-        <div className="neumorphic-card p-6 h-full flex flex-col">
+        <div className="neumorphic-card h-full flex flex-col">
           <h3 className="text-lg font-semibold text-foreground mb-4">
             Recent Activity
           </h3>
@@ -129,8 +117,7 @@ export default function ProfileDashboard() {
           </div>
         </div>
 
-        {/* Achievements */}
-        <div className="neumorphic-card p-6 h-full flex flex-col">
+        <div className="neumorphic-card h-full flex flex-col">
           <h3 className="text-lg font-semibold text-foreground mb-4">
             Recent Achievements
           </h3>

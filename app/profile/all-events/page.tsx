@@ -307,9 +307,8 @@ export default function AllEventsPage() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-      <div>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
           <h1 className="text-3xl font-bold text-foreground">All Running Events</h1>
           <p className="text-muted-foreground mt-2">
             Discover and join amazing running events near you
@@ -456,25 +455,25 @@ export default function AllEventsPage() {
               <tbody>
                 {paginatedEvents.map((event) => (
                   <tr key={event.id} className="border-b hover:bg-muted/50 transition-colors">
-                    <td className="p-4">
-                      <div className="flex items-start gap-3">
-                        {event.featured && (
-                          <Star className="h-4 w-4 text-yellow-500 mt-1 flex-shrink-0" />
-                        )}
-      <div>
-                          <div className="font-medium text-foreground">{event.name}</div>
-                          <div className="text-sm text-muted-foreground mt-1">
-                            {event.description}
-                          </div>
-                          {event.maxParticipants && (
-                            <div className="flex items-center gap-1 text-xs text-muted-foreground mt-1">
-                              <Users className="h-3 w-3" />
-                              {event.currentParticipants}/{event.maxParticipants} participants
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </td>
+                   <td className="p-4">
+                     <div className="flex items-start gap-3">
+                       {event.featured && (
+                         <Star className="h-4 w-4 text-yellow-500 mt-1 flex-shrink-0" />
+                       )}
+                       <div>
+                         <div className="font-medium text-foreground">{event.name}</div>
+                         <div className="text-sm text-muted-foreground mt-1">
+                           {event.description}
+                         </div>
+                         {event.maxParticipants && (
+                           <div className="flex items-center gap-1 text-xs text-muted-foreground mt-1">
+                             <Users className="h-3 w-3" />
+                             {event.currentParticipants}/{event.maxParticipants} participants
+                           </div>
+                         )}
+                       </div>
+                     </div>
+                   </td>
                     <td className="p-4">
                       <div className="flex items-center gap-1 text-sm">
                         <Calendar className="h-4 w-4 text-muted-foreground" />

@@ -228,9 +228,8 @@ Recovery is just as important as training. Make sure to get adequate sleep, prop
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-      <div>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
           <h1 className="text-3xl font-bold text-foreground">My Stories</h1>
           <p className="text-muted-foreground mt-2">
             Share your running journey and inspire others
@@ -333,9 +332,8 @@ Recovery is just as important as training. Make sure to get adequate sleep, prop
                 <div className="text-xs text-muted-foreground">
                   Supports markdown formatting. Use **bold**, *italic*, # headings, - lists, etc.
                 </div>
-      </div>
+              </div>
 
-              {/* Action Buttons */}
               <div className="flex items-center gap-4 pt-4 border-t">
                 <Button
                   onClick={handleSaveStory}
