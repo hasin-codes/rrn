@@ -70,9 +70,8 @@ export default function MyProfilePage() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-      <div>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
           <h1 className="text-3xl font-bold text-foreground">My Profile</h1>
           <p className="text-muted-foreground mt-2">
             Manage your personal information and preferences
@@ -416,7 +415,7 @@ export default function MyProfilePage() {
               </div>
             </CardContent>
           </Card>
-      </div>
+        </div>
 
         {/* Recommendations - Wide Card */}
         <div className="md:col-span-2 lg:col-span-2 xl:col-span-2">
@@ -441,8 +440,8 @@ export default function MyProfilePage() {
               </div>
             </CardContent>
           </Card>
+        </div>
       </div>
-    </div>
 
       {/* Save Button */}
       {isEditing && (

@@ -174,14 +174,11 @@ export default function MyEventsPage() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
       <div>
-          <h1 className="text-3xl font-bold text-foreground">My Events</h1>
-          <p className="text-muted-foreground mt-2">
-            Track your running journey and event history
-          </p>
-        </div>
+        <h1 className="text-3xl font-bold text-foreground">My Events</h1>
+        <p className="text-muted-foreground mt-2">
+          Track your running journey and event history
+        </p>
       </div>
 
       {/* Modern Search and Filters */}

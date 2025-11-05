@@ -30,7 +30,7 @@ export function ProfileCard({
     .toUpperCase();
 
   return (
-    <Card className="neumorphic-card">
+    <Card className="neumorphic-card h-full">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 text-lg font-semibold">
           <User className="h-5 w-5" />
@@ -38,7 +38,6 @@ export function ProfileCard({
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
-        {/* Profile Info */}
         <div className="flex items-center gap-4">
           <Avatar className="h-16 w-16">
             <AvatarImage src={avatarUrl} alt={name} />
@@ -55,7 +54,6 @@ export function ProfileCard({
           </div>
         </div>
 
-        {/* Strava Status */}
         <div className="flex items-center justify-between p-3 rounded-lg bg-muted/50">
           <div className="flex items-center gap-2">
             {stravaConnected ? (

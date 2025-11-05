@@ -31,7 +31,7 @@ export function NextEventReminder({
 }: NextEventReminderProps) {
   if (!event) {
     return (
-      <Card className="neumorphic-card">
+      <Card className="neumorphic-card h-full">
         <CardHeader>
           <CardTitle className="flex items-center gap-2 text-lg font-semibold">
             <Calendar className="h-5 w-5" />
@@ -80,7 +80,7 @@ export function NextEventReminder({
   };
 
   return (
-    <Card className="neumorphic-card">
+    <Card className="neumorphic-card h-full">
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-2 text-lg font-semibold">
